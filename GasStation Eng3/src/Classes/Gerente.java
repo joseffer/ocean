@@ -1,4 +1,4 @@
-package projetogasstation;
+package Classes;
 
 public class Gerente extends Funcionario{
     public void cadastrar_Funcionario(Funcionario f){

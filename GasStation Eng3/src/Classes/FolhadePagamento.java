@@ -1,4 +1,4 @@
-package projetogasstation;
+package Classes;
 
 public class FolhadePagamento {
     private float salario;
@@ -10,5 +10,13 @@ public class FolhadePagamento {
     private float salario_familia;
     private float decimo_terceiro;
     private float descontos;
+    
+    public void gerarFolha(){
+        
+    }
+    
+    public void alterarFolha(){
+        
+    }
     
 }

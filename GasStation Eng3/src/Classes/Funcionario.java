@@ -1,4 +1,4 @@
-package projetogasstation;
+package Classes;
 
 public class Funcionario {
     private String nome;

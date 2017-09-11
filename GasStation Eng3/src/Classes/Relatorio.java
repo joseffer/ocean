@@ -1,4 +1,4 @@
-package projetogasstation;
+package Classes;
 
 public class Relatorio {
     private float qnt_combustivel;
