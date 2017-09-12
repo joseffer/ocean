@@ -1,6 +1,7 @@
 package Classes;
 
 public class FolhadePagamento {
+
     private float salario;
     private float remuneracao;
     private float ferias;
@@ -10,13 +11,10 @@ public class FolhadePagamento {
     private float salario_familia;
     private float decimo_terceiro;
     private float descontos;
-    
-    public void gerarFolha(){
-        
+
+    public void gerarFolha() {
     }
-    
-    public void alterarFolha(){
-        
+
+    public void alterarFolha() {
     }
-    
 }

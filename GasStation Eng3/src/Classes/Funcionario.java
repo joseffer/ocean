@@ -1,6 +1,7 @@
 package Classes;
 
 public class Funcionario {
+
     private String nome;
     private String endereco;
     private String cargo;
@@ -8,22 +9,17 @@ public class Funcionario {
     private double rg;
     private double cpf;
     private double inss;
-    private double date; //TIPO DATE?
-    
-    
-    public void receber_Combustivel(){
-        
+    private double date;
+
+    public void receber_Combustivel() {
     }
-    
-    public void armazenar_Combustivel(){
-        
+
+    public void armazenar_Combustivel() {
     }
-    
-    public void emitir_NotaFiscal(){
-        
+
+    public void emitir_NotaFiscal() {
     }
-    
-    public void controlar_Caixa(){
-        
+
+    public void controlar_Caixa() {
     }
 }
