@@ -2,6 +2,7 @@ package classes;
 
 public class Produto {
 
+    private String nome;
     private int codigo;
     private float valor;
     private String descricao;
