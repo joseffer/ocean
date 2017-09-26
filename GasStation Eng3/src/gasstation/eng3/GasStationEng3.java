@@ -5,6 +5,8 @@
  */
 package gasstation.eng3;
 
+import interfaces.Login;
+
 /**
  *
  * @author kelwi
@@ -15,7 +17,8 @@ public class GasStationEng3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello Word!");
+            Login login = new Login();
+            login.setVisible(true);
     }
     
 }
