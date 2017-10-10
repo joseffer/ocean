@@ -59,7 +59,7 @@ public class TProduto extends javax.swing.JFrame {
 
         jLabel3.setText("Valor");
 
-        jLabel4.setText("TFDescricao");
+        jLabel4.setText("Descrição");
 
         TFDescricao.setColumns(20);
         TFDescricao.setRows(5);
