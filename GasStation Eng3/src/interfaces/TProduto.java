@@ -47,22 +47,17 @@ public class TProduto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nome Produto");
+        jLabel1.setText("Nome do Produto");
 
-        TFNomeProd.setText("TFNomeProd");
         TFNomeProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TFNomeProdActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Código");
-
-        TFCodigo.setText("TFCodigo");
+        jLabel2.setText("Código do Produto");
 
         jLabel3.setText("Valor");
-
-        TFValor.setText("TFValor");
 
         jLabel4.setText("TFDescricao");
 
@@ -75,8 +70,6 @@ public class TProduto extends javax.swing.JFrame {
         jLabel6.setText("Validade");
 
         jLabel7.setText("Fornecedor");
-
-        TFFornecedor.setText("TFFornecedor");
 
         BtCadastrar.setText("Cadastrar");
 
