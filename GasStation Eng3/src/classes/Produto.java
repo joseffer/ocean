@@ -9,7 +9,7 @@ public class Produto {
     private int codigo;
     private float valor;
     private String descricao;
-    private float dataCompra;
+    private String dataCompra;
     private String fornecedor;
     private float qntArmazenada;
     
@@ -18,7 +18,7 @@ public class Produto {
     public Produto(){
     
     this.codigo=0;
-    this.dataCompra=0;
+    this.dataCompra=null;
     this.descricao=null;
     this.fornecedor=null;
     this.nome=null;
@@ -30,7 +30,7 @@ public class Produto {
             int codigo,
             float valor,
             String descricao,
-            float dataCompra,
+            String dataCompra,
             String fornecedor,
             float qntArmazenada){
         
@@ -109,14 +109,14 @@ public class Produto {
     /**
      * @return the dataCompra
      */
-    public float getDataCompra() {
+    public String getDataCompra() {
         return dataCompra;
     }
 
     /**
      * @param dataCompra the dataCompra to set
      */
-    public void setDataCompra(float dataCompra) {
+    public void setDataCompra(String dataCompra) {
         this.dataCompra = dataCompra;
     }
 
