@@ -5,6 +5,9 @@
  */
 package interfaces;
 
+import java.awt.Window;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ASUS
@@ -49,6 +52,17 @@ public class HomeOk extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(232, 81, 74));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel2MouseExited(evt);
+            }
+        });
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -106,7 +120,7 @@ public class HomeOk extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/gas-station.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gas-station.png"))); // NOI18N
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, 280));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -152,6 +166,32 @@ public class HomeOk extends javax.swing.JFrame {
         jPasswordField1.setText("");
     }//GEN-LAST:event_jPasswordField1FocusGained
 
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        // TODO add your handling code here:
+        new Menu().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+        // TODO add your handling code here:
+        setColor(jPanel2);
+    }//GEN-LAST:event_jPanel2MouseEntered
+
+    private void jPanel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseExited
+        // TODO add your handling code here:
+        resetColor(jPanel2);
+    }//GEN-LAST:event_jPanel2MouseExited
+
+    
+    public void setColor(JPanel panel)
+ {
+     panel.setBackground(new java.awt.Color(239, 24, 14));
+ }
+ 
+ public void resetColor(JPanel panel)
+ {
+     panel.setBackground(new java.awt.Color(232,81,74));
+ }
     /**
      * @param args the command line arguments
      */
