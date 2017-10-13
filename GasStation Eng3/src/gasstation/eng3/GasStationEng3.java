@@ -5,7 +5,8 @@
  */
 package gasstation.eng3;
 
-import interfaces.Login;
+import interfaces.HomeOk;
+
 
 /**
  *
@@ -17,8 +18,8 @@ public class GasStationEng3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-            Login login = new Login();
-            login.setVisible(true);
+            HomeOk home = new HomeOk();
+            home.setVisible(true);
     }
     
 }
