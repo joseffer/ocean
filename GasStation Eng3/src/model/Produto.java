@@ -1,4 +1,4 @@
-package classes;
+package model;
 
 public class Produto {
 
@@ -27,7 +27,6 @@ public class Produto {
     }
     
     public Produto(  String nome,
-            int codigo,
             float valor,
             String descricao,
             String dataCompra,
@@ -36,7 +35,6 @@ public class Produto {
         
         
         setNome(nome);
-        setCodigo(codigo);
         setValor(valor);
         setDescricao(descricao);
         setDataCompra(dataCompra);

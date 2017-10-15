@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaces;
+package view;
 
-import classes.Produto;
+import model.Produto;
+import modelDAO.ProdutoDAO;
 
 /**
  *
@@ -152,13 +153,15 @@ public class TProduto extends javax.swing.JFrame {
 
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
         // TODO add your handling code here:
-        Produto p = new Produto(tfNomeProd.getText(),
-                Integer.parseInt(tfCodigo.getText()),
+        Produto p = new Produto(tfNomeProd.getText(),                
                 Float.parseFloat(tfValor.getText()),
                 tfDescricao.getText(),
                 dcCompra.getText(),
                 tfFornecedor.getText(),
                 Float.parseFloat(tfQtd.getText()));
+        
+        ProdutoDAO dao = new ProdutoDAO();
+        dao.create(p);
         
                 
     }//GEN-LAST:event_BtCadastrarActionPerformed

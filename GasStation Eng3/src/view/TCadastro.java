@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaces;
+package view;
 
-import classes.Funcionario;
+import model.Funcionario;
+import modelDAO.FuncionarioDAO;
 import java.util.Date;
 
 /**
@@ -226,6 +227,8 @@ public class TCadastro extends javax.swing.JFrame {
             (float) Double.parseDouble(tfInss.getText()),
             tfUsuario.getText(),
             tfSenha.getText());
+        FuncionarioDAO dao = new FuncionarioDAO();
+        dao.create(F);
         limpar();
     }//GEN-LAST:event_jBSalvarActionPerformed
 

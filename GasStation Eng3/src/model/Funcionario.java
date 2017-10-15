@@ -1,4 +1,4 @@
-package classes;
+package model;
 import java.text.*;
 import java.util.Date;
 
