@@ -5,7 +5,7 @@
  */
 package gasstation.eng3;
 
-import interfaces.HomeOk;
+import interfaces.Tlogin;
 
 
 /**
@@ -18,7 +18,7 @@ public class GasStationEng3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-            HomeOk home = new HomeOk();
+            Tlogin home = new Tlogin();
             home.setVisible(true);
     }
     
