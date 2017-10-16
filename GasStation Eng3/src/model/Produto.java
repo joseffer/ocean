@@ -26,12 +26,7 @@ public class Produto {
     this.valor=0;  
     }
     
-    public Produto(  String nome,
-            float valor,
-            String descricao,
-            String dataCompra,
-            String fornecedor,
-            float qntArmazenada){
+    public Produto(  String nome, float valor, String descricao, String dataCompra, String fornecedor,float qntArmazenada){
         
         
         setNome(nome);
