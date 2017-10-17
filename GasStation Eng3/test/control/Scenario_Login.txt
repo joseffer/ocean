@@ -4,4 +4,4 @@ Given um usuario com login de admin
 Given um usuadio com senha de admin
 when quando digitar admin no campo usuario na tela de login
 when quando digitar admin no campo senha na tela de login
-then deve apresentar a mensage logado
+then deve apresentar a mensagem logado
