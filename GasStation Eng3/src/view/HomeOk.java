@@ -6,7 +6,10 @@
 package view;
 
 import java.awt.Window;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import modelDAO.FuncionarioDAO;
+import model.Funcionario;
 
 /**
  *
@@ -39,8 +42,8 @@ public class HomeOk extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        tfSenha = new javax.swing.JPasswordField();
+        tfLogin = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -86,34 +89,34 @@ public class HomeOk extends javax.swing.JFrame {
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 320, 20));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 250, 10));
 
-        jPasswordField1.setBackground(new java.awt.Color(36, 47, 65));
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.setBorder(null);
-        jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+        tfSenha.setBackground(new java.awt.Color(36, 47, 65));
+        tfSenha.setForeground(new java.awt.Color(255, 255, 255));
+        tfSenha.setText("jPasswordField1");
+        tfSenha.setBorder(null);
+        tfSenha.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jPasswordField1FocusGained(evt);
+                tfSenhaFocusGained(evt);
             }
         });
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 320, 30));
+        jPanel1.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 320, 30));
 
-        jTextField1.setBackground(new java.awt.Color(36, 47, 65));
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Insira seu usuário");
-        jTextField1.setBorder(null);
-        jTextField1.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfLogin.setBackground(new java.awt.Color(36, 47, 65));
+        tfLogin.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tfLogin.setForeground(new java.awt.Color(255, 255, 255));
+        tfLogin.setText("Insira seu usuário");
+        tfLogin.setBorder(null);
+        tfLogin.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        tfLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
+                tfLoginMouseClicked(evt);
             }
         });
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 320, 30));
+        jPanel1.add(tfLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 320, 30));
 
         jPanel3.setBackground(new java.awt.Color(232, 81, 74));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -153,23 +156,39 @@ public class HomeOk extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfLoginActionPerformed
 
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
-        jTextField1.setText("");
-    }//GEN-LAST:event_jTextField1MouseClicked
+    private void tfLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfLoginMouseClicked
+        tfLogin.setText("");
+    }//GEN-LAST:event_tfLoginMouseClicked
 
-    private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusGained
+    private void tfSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSenhaFocusGained
         // TODO add your handling code here:
-        jPasswordField1.setText("");
-    }//GEN-LAST:event_jPasswordField1FocusGained
+        tfSenha.setText("");
+    }//GEN-LAST:event_tfSenhaFocusGained
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
-        new Menu().setVisible(true);
-        dispose();
+        int ok=0;
+        FuncionarioDAO fdao = new FuncionarioDAO();
+        for (Funcionario f : fdao.ListarFunc()){
+                 JOptionPane.showMessageDialog(null,"usaurio "+f.getLogin()+"senha"+f.getSenha());
+                if((f.getLogin() == null ? tfLogin.getText() == null : f.getLogin().equals(tfLogin.getText())) && f.getSenha() == tfSenha.getText()){
+                    ok=1;
+                    break;
+                }else{
+                    ok=2;              
+               } 
+        }
+        
+         if(ok==1){
+            new Menu().setVisible(true);
+            dispose();
+         }else{
+             JOptionPane.showMessageDialog(null,"Senha Invalida ");
+         }
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
@@ -237,11 +256,11 @@ public class HomeOk extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField tfLogin;
+    private javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
 }

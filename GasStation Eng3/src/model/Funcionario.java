@@ -3,7 +3,7 @@ import java.text.*;
 import java.util.Date;
 
 public class Funcionario {
-
+    private int codigoFun; 
     private String nome;
     private String endereco;
     private String cargo;
@@ -16,6 +16,7 @@ public class Funcionario {
     private String Senha;
     
     public Funcionario(){
+        codigoFun = 0;
         nome = null;
         endereco = null;
         cargo = null;
@@ -134,6 +135,20 @@ public class Funcionario {
 
     public void setSenha(String Senha) {
         this.Senha = Senha;
+    }
+
+    /**
+     * @return the codigoFun
+     */
+    public int getCodigoFun() {
+        return codigoFun;
+    }
+
+    /**
+     * @param codigoFun the codigoFun to set
+     */
+    public void setCodigoFun(int codigoFun) {
+        this.codigoFun = codigoFun;
     }
     
     

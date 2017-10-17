@@ -8,7 +8,12 @@ package modelDAO;
 import control.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Funcionario;
 import model.Produto;
@@ -44,4 +49,38 @@ public class FuncionarioDAO {
         }
                
     }
+      
+       public List<Funcionario> ListarFunc() {
+        Connection con = Conexao.getConnection();
+        PreparedStatement stmt =null;
+        ResultSet rs = null;
+        List <Funcionario> lFunc = new ArrayList<>();
+      
+          try {
+              stmt = con.prepareStatement("select * from funcionario");
+               rs = stmt.executeQuery();
+               while(rs.next()){
+                    Funcionario funcionario = new Funcionario();
+                    funcionario.setCodigoFun(rs.getInt("IDFunc"));
+                    funcionario.setNome(rs.getString("nome"));
+                    funcionario.setEndereco(rs.getString("endereco"));
+                    funcionario.setCargo(rs.getString("cargo"));
+                    funcionario.setSalario(rs.getInt("salario"));
+                    funcionario.setRg(rs.getString("rg"));
+                    funcionario.setCpf(rs.getString("cpf"));
+                    funcionario.setInss(rs.getInt("inss"));
+                    funcionario.setLogin(rs.getString("login"));
+                    funcionario.setSenha(rs.getString("Senha"));
+               
+               }
+          } catch (SQLException ex) {
+              Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+          }finally{
+       
+            Conexao.closeConnection(con, stmt, rs);
+       
+        }     
+        
+        return lFunc;
+       }
 }

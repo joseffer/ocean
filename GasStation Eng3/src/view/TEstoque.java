@@ -20,7 +20,7 @@ public class TEstoque extends javax.swing.JFrame {
      */
     public TEstoque() {
         initComponents();
-        CarregaTabela();
+        CarregaTabelaPRod();
     }
 
     /**
@@ -119,7 +119,7 @@ public class TEstoque extends javax.swing.JFrame {
     
     
     
-    public void CarregaTabela(){
+    public void CarregaTabelaPRod(){
         
             DefaultTableModel  model= (DefaultTableModel) jTableProduto.getModel();
             ProdutoDAO pdao = new ProdutoDAO();
