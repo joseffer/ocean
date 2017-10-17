@@ -5,6 +5,7 @@
  */
 package modelDAO;
 
+import org.jbehave.core.annotations.Given;
 import org.jbehave.core.steps.Steps;
 
 /**
@@ -14,11 +15,18 @@ import org.jbehave.core.steps.Steps;
 public class FuncionarioDAOTestBehave extends Steps{
     
     //Objeto representando o Funcionario
-    private FuncionarioDAO f;
+    private model.Funcionario funcionario;
+    private FuncionarioDAO fdao;
     
     //Objeto para validar o cadastro
     private boolean funcionarioCadastrado;
     
-    //instancia
+    //instancia o Funcionario e da nome e senha
+    @Given("um funcionario é cadastrado no sistema com o seguinte $login e $senha" )
+    public void testaFuncionario(){
+        fdao = new FuncionarioDAO();
+        fdao.create(funcionario);
+            
+    }
     
 }
