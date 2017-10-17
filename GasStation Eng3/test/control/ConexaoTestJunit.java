@@ -8,18 +8,24 @@ package control;
 import java.sql.Connection;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
  * @author kelwi
  */
-public class ConexaoTest {
+public class ConexaoTestJunit {
     
-    public ConexaoTest() {
+    public ConexaoTestJunit() {
     }
 
     @Test
-    public void closeConnection() {
+    public void conetar() {
+        Connection connection = Conexao.getConnection();
     }
     
+    @Test
+    @Ignore
+    public void desconetar() {
+    }
 }

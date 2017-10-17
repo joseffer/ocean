@@ -35,7 +35,7 @@
         <Method name="alterarFolha" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Frentista" package="Classes" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="Frentista" package="Classes" visibility="public" xPosition="1047.0" yPosition="534.0">
       <Fields/>
       <Constructors/>
       <Methods/>
@@ -59,7 +59,7 @@
         <Method name="controlar_Caixa" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Gerente" package="Classes" visibility="public" xPosition="1520.0" yPosition="20.0">
+    <Class name="Gerente" package="Classes" visibility="public" xPosition="1241.0" yPosition="462.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -74,7 +74,7 @@
         <Method name="controle_estoqueproduto" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Produto" package="Classes" visibility="public" xPosition="1820.0" yPosition="20.0">
+    <Class name="Produto" package="Classes" visibility="public" xPosition="274.0" yPosition="179.0">
       <Fields>
         <Field name="codigo" type="int" visibility="private"/>
         <Field name="valor" type="float" visibility="private"/>
@@ -90,7 +90,7 @@
         <Method name="removerProduto" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Relatorio" package="Classes" visibility="public" xPosition="2120.0" yPosition="20.0">
+    <Class name="Relatorio" package="Classes" visibility="public" xPosition="911.0" yPosition="20.0">
       <Fields>
         <Field name="qnt_combustivel" type="float" visibility="private"/>
         <Field name="comb_destaque" type="String" visibility="private"/>
@@ -100,7 +100,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Venda" package="Classes" visibility="public" xPosition="20.0" yPosition="420.0">
+    <Class name="Venda" package="Classes" visibility="public" xPosition="43.0" yPosition="363.0">
       <Fields>
         <Field name="dataVenda" type="float" visibility="private"/>
         <Field name="qtd" type="float" visibility="private"/>
@@ -115,9 +115,9 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
+    <IsRelation name="is" source="Classes.Gerente" target="Classes.Funcionario"/>
     <UseRelation source="Classes.Gerente" target="Classes.Funcionario" sourceCardinality="1..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="Classes.Combustivel" target="Classes.Produto"/>
-    <IsRelation name="is" source="Classes.Gerente" target="Classes.Funcionario"/>
     <IsRelation name="is" source="Classes.Frentista" target="Classes.Funcionario"/>
   </ClassDiagramRelations>
 </ClassDiagram>
