@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.table.DefaultTableModel;
+import model.Produto;
+import modelDAO.ProdutoDAO;
+
 /**
  *
  * @author Dell
@@ -16,6 +20,7 @@ public class TEstoque extends javax.swing.JFrame {
      */
     public TEstoque() {
         initComponents();
+        CarregaTabela();
     }
 
     /**
@@ -33,7 +38,7 @@ public class TEstoque extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableProduto = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -58,22 +63,31 @@ public class TEstoque extends javax.swing.JFrame {
 
         jButton1.setText("Atualizar");
         jButton1.setName("BAtualizar"); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 63, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(36, 47, 65));
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableProduto.setBackground(new java.awt.Color(36, 47, 65));
+        jTableProduto.setForeground(new java.awt.Color(255, 255, 255));
+        jTableProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "IDProd", "Nome", "Descrição", "Fornecedor", "Quantidade", "valor"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableProduto);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 104, -1, 287));
 
@@ -95,9 +109,39 @@ public class TEstoque extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    
+    
+    public void CarregaTabela(){
+        
+            DefaultTableModel  model= (DefaultTableModel) jTableProduto.getModel();
+            ProdutoDAO pdao = new ProdutoDAO();
+            
+            for (Produto p: pdao.Listar()){
+                model.addRow(new Object[]{
+                p.getCodigo(),
+                p.getNome(),
+                p.getDescricao(),
+                p.getFornecedor(),
+                p.getQntArmazenada(),
+                p.getValor()
+                
+                });
+                
+            }
+    
+    
+    
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -127,6 +171,7 @@ public class TEstoque extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TEstoque().setVisible(true);
+                
             }
         });
     }
@@ -137,7 +182,7 @@ public class TEstoque extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableProduto;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
