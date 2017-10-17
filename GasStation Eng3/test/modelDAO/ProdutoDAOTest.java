@@ -8,6 +8,7 @@ package modelDAO;
 import model.Produto;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -19,11 +20,18 @@ public class ProdutoDAOTest {
     }
 
     @Test
+    @Ignore
     public void create() {
         Produto prod = new Produto("Oleo de motor", (float) 30.00, "Oleo 15W40", "16/10/2017", "Castrol Brasil", 20);
         ProdutoDAO dao = new ProdutoDAO();
         
         dao.create(prod);
+    }
+    
+    @Test
+    public void testListar() {
+     ProdutoDAO dao = new ProdutoDAO();
+     dao.Listar();
     }
     
 }
