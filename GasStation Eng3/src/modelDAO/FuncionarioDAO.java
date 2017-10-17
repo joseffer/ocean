@@ -57,9 +57,10 @@ public class FuncionarioDAO {
         List <Funcionario> lFunc = new ArrayList<>();
       
           try {
-              stmt = con.prepareStatement("select * from funcionario");
+              stmt = con.prepareStatement("select * from Funcionario");
                rs = stmt.executeQuery();
                while(rs.next()){
+                   
                     Funcionario funcionario = new Funcionario();
                     funcionario.setCodigoFun(rs.getInt("IDFunc"));
                     funcionario.setNome(rs.getString("nome"));
@@ -71,6 +72,7 @@ public class FuncionarioDAO {
                     funcionario.setInss(rs.getInt("inss"));
                     funcionario.setLogin(rs.getString("login"));
                     funcionario.setSenha(rs.getString("Senha"));
+                    lFunc.add(funcionario);
                
                }
           } catch (SQLException ex) {

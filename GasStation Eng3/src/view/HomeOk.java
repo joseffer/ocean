@@ -174,8 +174,8 @@ public class HomeOk extends javax.swing.JFrame {
         int ok=0;
         FuncionarioDAO fdao = new FuncionarioDAO();
         for (Funcionario f : fdao.ListarFunc()){
-                 JOptionPane.showMessageDialog(null,"usaurio "+f.getLogin()+"senha"+f.getSenha());
-                if((f.getLogin() == null ? tfLogin.getText() == null : f.getLogin().equals(tfLogin.getText())) && f.getSenha() == tfSenha.getText()){
+                
+                if((f.getLogin().equals(tfLogin.getText())) && (f.getSenha().equals( tfSenha.getText()))){
                     ok=1;
                     break;
                 }else{
