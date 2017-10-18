@@ -5,8 +5,16 @@
  */
 package view;
 
+import datechooser.beans.DateChooserCombo;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Produto;
 import modelDAO.ProdutoDAO;
+import java.util.Calendar;
 
 /**
  *
@@ -153,15 +161,26 @@ public class TProduto extends javax.swing.JFrame {
 
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
         // TODO add your handling code here:
-        Produto p = new Produto(tfNomeProd.getText(),                
-                Float.parseFloat(tfValor.getText()),
-                tfDescricao.getText(),
-                dcCompra.getText(),
-                tfFornecedor.getText(),
-                Float.parseFloat(tfQtd.getText()));
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yy");
+        try {
+                Date dataFormatada = formato.parse(dcCompra.getText());
+                Produto p = new Produto(tfNomeProd.getText(),                
+                    Float.parseFloat(tfValor.getText()),
+                    tfDescricao.getText(),
+                    dataFormatada,
+                    tfFornecedor.getText(),
+                    Float.parseFloat(tfQtd.getText()));
         
         ProdutoDAO dao = new ProdutoDAO();
         dao.create(p);
+        } catch (ParseException ex) {
+            Logger.getLogger(TProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+        
+        
+
         
                 
     }//GEN-LAST:event_BtCadastrarActionPerformed
