@@ -25,8 +25,10 @@ public class Produto {
     private int codigo;
     private float valor;
     private String descricao;
+
     private String dataCompra;
     private String dataValidade;
+
     private String fornecedor;
     private float qntArmazenada;
     
@@ -44,7 +46,9 @@ public class Produto {
     this.valor=0;  
     }
     
+
     public Produto(  String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
+
         
         
         setNome(nome);
@@ -121,14 +125,18 @@ public class Produto {
     /**
      * @return the dataCompra
      */
+
     public String  getDataCompra() {
+
         return dataCompra;
     }
 
     /**
      * @param dataCompra the dataCompra to set
      */
+
     public void setDataCompra(String  dataCompra) {
+
         this.dataCompra = dataCompra;
     }
 

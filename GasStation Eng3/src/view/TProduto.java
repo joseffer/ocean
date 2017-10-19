@@ -5,7 +5,8 @@
  */
 package view;
 
-import java.text.DateFormat;
+
+import datechooser.beans.DateChooserCombo;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Produto;
 import modelDAO.ProdutoDAO;
+import java.util.Calendar;
 
 /**
  *
@@ -204,6 +206,7 @@ public class TProduto extends javax.swing.JFrame {
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
         // TODO add your handling code here:
 
+
        
             Produto p = new Produto(tfNomeProd.getText(),                
                 Float.parseFloat(tfValor.getText()),
@@ -211,10 +214,16 @@ public class TProduto extends javax.swing.JFrame {
                 dcCompra.getText(),
                 dcValidade.getText(),
                 tfFornecedor.getText(),
-                Float.parseFloat(tfQtd.getText()));
+                Float.parseFloat(tfQtd.getText()));  
+       
+             ProdutoDAO dao = new ProdutoDAO();
+             dao.create(p);
+  
+
+
         
-        ProdutoDAO dao = new ProdutoDAO();
-        dao.create(p);
+        
+
         
         //contruindo  um objeto produto
         
