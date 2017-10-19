@@ -5,6 +5,13 @@
  */
 package view;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Produto;
 import modelDAO.ProdutoDAO;
 
@@ -120,31 +127,74 @@ public class TProduto extends javax.swing.JFrame {
 
         BtExcluir.setText("Excluir");
         getContentPane().add(BtExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 311, -1, -1));
-        getContentPane().add(dcCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 221, -1, -1));
-        getContentPane().add(dcValidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 221, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Quantidade");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 63, -1, -1));
-        getContentPane().add(tfQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 84, 57, -1));
+        dcCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
+            new datechooser.view.appearance.ViewAppearance("custom",
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
+                    new java.awt.Color(0, 0, 255),
+                    true,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 255),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(128, 128, 128),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.LabelPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.LabelPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
+                    new java.awt.Color(255, 0, 0),
+                    false,
+                    false,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                (datechooser.view.BackRenderer)null,
+                false,
+                true)));
+    dcCompra.setWeekStyle(datechooser.view.WeekDaysStyle.SHORT);
+    getContentPane().add(dcCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 221, -1, -1));
+    getContentPane().add(dcValidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 221, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(36, 47, 65));
+    jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+    jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel8.setText("Quantidade");
+    getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 63, -1, -1));
+    getContentPane().add(tfQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 84, 57, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
+    jPanel1.setBackground(new java.awt.Color(36, 47, 65));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 400, Short.MAX_VALUE)
+    );
+    jPanel1Layout.setVerticalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 350, Short.MAX_VALUE)
+    );
 
-        pack();
+    getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
+
+    pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfNomeProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeProdActionPerformed
@@ -153,15 +203,26 @@ public class TProduto extends javax.swing.JFrame {
 
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
         // TODO add your handling code here:
-        Produto p = new Produto(tfNomeProd.getText(),                
+
+           
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date datac = formato.parse(dcCompra.getText());
+            Produto p = new Produto(tfNomeProd.getText(),                
                 Float.parseFloat(tfValor.getText()),
                 tfDescricao.getText(),
-                dcCompra.getText(),
+                datac,
                 tfFornecedor.getText(),
                 Float.parseFloat(tfQtd.getText()));
         
         ProdutoDAO dao = new ProdutoDAO();
         dao.create(p);
+        } catch (ParseException ex) {
+            Logger.getLogger(TProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //contruindo  um objeto produto
+        
         
                 
     }//GEN-LAST:event_BtCadastrarActionPerformed
