@@ -29,6 +29,7 @@ public class Funcionario {
         Senha = null;
     }
     
+    
     public Funcionario(String nome, String endereco, String cargo, float salario, String rg, String cpf, float inss,
             String login, String senha){
         setNome(nome);
@@ -43,6 +44,10 @@ public class Funcionario {
         setSenha(senha);
     }
 
+    public Funcionario(String login, String senha){
+        setLogin(login);
+        setSenha(senha);
+    }
     public void receberCombustivel() {
     }
 
