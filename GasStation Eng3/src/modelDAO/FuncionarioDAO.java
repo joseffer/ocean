@@ -29,7 +29,7 @@ public class FuncionarioDAO {
         PreparedStatement stmt =null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO Funcionario(nome,endereco,cargo,salario,rg,cpf,inss,login,Senha)VALUES(?,?,?,?,?,?,?,?,?) ");
+            stmt = con.prepareStatement("INSERT INTO Funcionario(nome,endereco,cargo,salario,rg,cpf,inss,login,senha)VALUES(?,?,?,?,?,?,?,?,?) ");
             stmt.setString(1,f.getNome() );
             stmt.setString(2,f.getEndereco() );
             stmt.setString(3,f.getCargo() );
@@ -62,7 +62,7 @@ public class FuncionarioDAO {
                while(rs.next()){
                    
                     Funcionario funcionario = new Funcionario();
-                    funcionario.setCodigoFun(rs.getInt("IDFunc"));
+                    funcionario.setCodigoFun(rs.getInt("idFunc"));
                     funcionario.setNome(rs.getString("nome"));
                     funcionario.setEndereco(rs.getString("endereco"));
                     funcionario.setCargo(rs.getString("cargo"));
@@ -71,7 +71,7 @@ public class FuncionarioDAO {
                     funcionario.setCpf(rs.getString("cpf"));
                     funcionario.setInss(rs.getInt("inss"));
                     funcionario.setLogin(rs.getString("login"));
-                    funcionario.setSenha(rs.getString("Senha"));
+                    funcionario.setSenha(rs.getString("senha"));
                     lFunc.add(funcionario);
                
                }

@@ -5,13 +5,28 @@ import java.util.Date;
 public class Produto {
 
     /**
+     * @return the dataValidade
+     */
+    public String getDataValidade() {
+        return dataValidade;
+    }
+
+    /**
+     * @param dataValidade the dataValidade to set
+     */
+    public void setDataValidade(String dataValidade) {
+        this.dataValidade = dataValidade;
+    }
+
+    /**
      * @return the nome
      */
     private String nome;
     private int codigo;
     private float valor;
     private String descricao;
-    private Date dataCompra;
+    private String dataCompra;
+    private String dataValidade;
     private String fornecedor;
     private float qntArmazenada;
     
@@ -21,6 +36,7 @@ public class Produto {
     
     this.codigo=0;
     this.dataCompra=null;
+    this.dataValidade=null;
     this.descricao=null;
     this.fornecedor=null;
     this.nome=null;
@@ -28,13 +44,14 @@ public class Produto {
     this.valor=0;  
     }
     
-    public Produto(  String nome, float valor, String descricao, Date dataCompra, String fornecedor,float qntArmazenada){
+    public Produto(  String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
         
         
         setNome(nome);
         setValor(valor);
         setDescricao(descricao);
         setDataCompra(dataCompra);
+        setDataValidade(dataValidade);
         setFornecedor(fornecedor);
         setQntArmazenada(qntArmazenada);
     
@@ -104,14 +121,14 @@ public class Produto {
     /**
      * @return the dataCompra
      */
-    public Date  getDataCompra() {
+    public String  getDataCompra() {
         return dataCompra;
     }
 
     /**
      * @param dataCompra the dataCompra to set
      */
-    public void setDataCompra(Date  dataCompra) {
+    public void setDataCompra(String  dataCompra) {
         this.dataCompra = dataCompra;
     }
 
