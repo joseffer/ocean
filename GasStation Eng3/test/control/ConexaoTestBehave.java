@@ -7,7 +7,10 @@ package control;
 
 import org.jbehave.core.annotations.Given;
 import model.Funcionario;
+import modelDAO.FuncionarioDAO;
+import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import view.HomeOk;
 
 
 /**
@@ -17,15 +20,38 @@ import org.jbehave.core.annotations.When;
   
 public class ConexaoTestBehave {
     
-    private Funcionario funcionario;
+    private FuncionarioDAO funcionario;
+    private Funcionario f;
+    private HomeOk home = new HomeOk();
+    
+    
     
     @Given("Given um usuario com login de $login e senha de $senha")
     public void umLogin(String login, String senha){
-        funcionario = new Funcionario(login,senha);
+        funcionario = new FuncionarioDAO();
+        
     }
     
     @When("When quando digitar $login no campo usuario e senha $senha na tela de login")
     public void usuarioLogado(){
+        int ok =0;
+        
+        for (Funcionario f : funcionario.ListarFunc()){
+                
+                if((f.getLogin().equals(home.tfLogin.getText())) && (f.getSenha().equals( home.tfSenha.getText()))){
+                    ok=1;
+                    break;
+                }else{
+                    ok=2;              
+               } 
+        }
+            
+        }
+    
+    @Then("Then deve apresentar a mensagem de sucesso $logado")
+    public void alertaLogin(){
         
     }
+        
+    
 }

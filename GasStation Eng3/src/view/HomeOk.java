@@ -23,6 +23,12 @@ public class HomeOk extends javax.swing.JFrame {
     public HomeOk() {
         initComponents();
     }
+    
+    public HomeOk(javax.swing.JTextField login, javax.swing.JPasswordField Senha){
+        login = tfLogin;
+        Senha = tfSenha;
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -260,7 +266,7 @@ public class HomeOk extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField tfLogin;
-    private javax.swing.JPasswordField tfSenha;
+    public javax.swing.JTextField tfLogin;
+    public javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
 }
