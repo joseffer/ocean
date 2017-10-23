@@ -23,7 +23,7 @@ public class ConexaoTestBehave {
     private FuncionarioDAO funcionario;
     private Funcionario f;
     private HomeOk home = new HomeOk();
-    
+    int ok =0;
     
     
     @Given("Given um usuario com login de $login e senha de $senha")
@@ -34,7 +34,7 @@ public class ConexaoTestBehave {
     
     @When("When quando digitar $login no campo usuario e senha $senha na tela de login")
     public void usuarioLogado(){
-        int ok =0;
+        
         
         for (Funcionario f : funcionario.ListarFunc()){
                 
@@ -48,9 +48,17 @@ public class ConexaoTestBehave {
             
         }
     
-    @Then("Then deve apresentar a mensagem de sucesso $logado")
+    @Then("A flag OK deve ser igual a $status")
     public void alertaLogin(){
-        
+        for (Funcionario f : funcionario.ListarFunc()){
+                
+                if((f.getLogin().equals(home.tfLogin.getText())) && (f.getSenha().equals( home.tfSenha.getText()))){
+                    ok=1;
+                    break;
+                }else{
+                    ok=2;              
+               } 
+        }
     }
         
     
