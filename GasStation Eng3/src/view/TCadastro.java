@@ -7,7 +7,6 @@ package view;
 
 import model.Funcionario;
 import modelDAO.FuncionarioDAO;
-import java.util.Date;
 import javax.swing.JPanel;
 
 /**
@@ -15,6 +14,43 @@ import javax.swing.JPanel;
  * @author j155993
  */
 public class TCadastro extends javax.swing.JFrame {
+
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel TfSenha;
+    private javax.swing.JLabel TfUsuario;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTextField tfCargo;
+    private javax.swing.JTextField tfCpf;
+    private javax.swing.JTextField tfEndereco;
+    private javax.swing.JTextField tfInss;
+    private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfRg;
+    private javax.swing.JTextField tfSalario;
+    private javax.swing.JTextField tfSenha;
+    private javax.swing.JTextField tfUsuario;
+    // End of variables declaration//GEN-END:variables
 
     /**
      * Creates new form CadastroFuncionario
@@ -251,22 +287,27 @@ public class TCadastro extends javax.swing.JFrame {
 
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_tfNomeActionPerformed
 
     private void tfRgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfRgActionPerformed
         // TODO add your handling code here:
+         evt.getClass();
     }//GEN-LAST:event_tfRgActionPerformed
 
     private void tfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCpfActionPerformed
         // TODO add your handling code here:
+         evt.getClass();
     }//GEN-LAST:event_tfCpfActionPerformed
 
     private void tfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsuarioActionPerformed
         // TODO add your handling code here:
+         evt.getClass();
     }//GEN-LAST:event_tfUsuarioActionPerformed
 
     private void tfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaActionPerformed
         // TODO add your handling code here:
+         evt.getClass();
     }//GEN-LAST:event_tfSenhaActionPerformed
 
     public void limpar(){
@@ -283,20 +324,23 @@ public class TCadastro extends javax.swing.JFrame {
     
     private void tfEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEnderecoActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_tfEnderecoActionPerformed
 
     private void tfSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSalarioActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_tfSalarioActionPerformed
 
     private void tfCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCargoActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_tfCargoActionPerformed
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
         //Codigo de cadastro aqui
-        
+        evt.getLocationOnScreen();
         Funcionario F = new Funcionario(tfNome.getText(),
             tfEndereco.getText(),
             tfCargo.getText(),
@@ -313,11 +357,13 @@ public class TCadastro extends javax.swing.JFrame {
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
         // TODO add your handling code here:
+        evt.getLocationOnScreen();
         setColor(jPanel2);
     }//GEN-LAST:event_jPanel2MouseEntered
 
     private void jPanel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseExited
         // TODO add your handling code here:
+        evt.getLocationOnScreen();
         resetColor(jPanel2);
     }//GEN-LAST:event_jPanel2MouseExited
 
@@ -366,40 +412,5 @@ public class TCadastro extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel TfSenha;
-    private javax.swing.JLabel TfUsuario;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField tfCargo;
-    private javax.swing.JTextField tfCpf;
-    private javax.swing.JTextField tfEndereco;
-    private javax.swing.JTextField tfInss;
-    private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfRg;
-    private javax.swing.JTextField tfSalario;
-    private javax.swing.JTextField tfSenha;
-    private javax.swing.JTextField tfUsuario;
-    // End of variables declaration//GEN-END:variables
+    
 }

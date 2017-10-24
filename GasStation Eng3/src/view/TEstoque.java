@@ -15,12 +15,23 @@ import modelDAO.ProdutoDAO;
  */
 public class TEstoque extends javax.swing.JFrame {
 
+      // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableProduto;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    // End of variables declaration//GEN-END:variables
+
     /**
      * Creates new form Estoque
      */
     public TEstoque() {
         initComponents();
-        CarregaTabelaPRod();
+        carregaTabelaPRod();
     }
 
     /**
@@ -111,6 +122,7 @@ public class TEstoque extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -119,7 +131,7 @@ public class TEstoque extends javax.swing.JFrame {
     
     
     
-    public void CarregaTabelaPRod(){
+    public void carregaTabelaPRod(){
         
             DefaultTableModel  model= (DefaultTableModel) jTableProduto.getModel();
             ProdutoDAO pdao = new ProdutoDAO();
@@ -176,14 +188,5 @@ public class TEstoque extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableProduto;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    // End of variables declaration//GEN-END:variables
+  
 }

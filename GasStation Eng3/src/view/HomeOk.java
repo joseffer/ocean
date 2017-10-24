@@ -17,6 +17,24 @@ import model.Funcionario;
  */
 public class HomeOk extends javax.swing.JFrame {
 
+     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    public javax.swing.JTextField tfLogin;
+    public javax.swing.JPasswordField tfSenha;
+    // End of variables declaration//GEN-END:variables
+
     /**
      * Creates new form HomeOk
      */
@@ -24,11 +42,7 @@ public class HomeOk extends javax.swing.JFrame {
         initComponents();
     }
     
-    public HomeOk(javax.swing.JTextField login, javax.swing.JPasswordField Senha){
-        login = tfLogin;
-        Senha = tfSenha;
-        
-    }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -164,19 +178,23 @@ public class HomeOk extends javax.swing.JFrame {
 
     private void tfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLoginActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_tfLoginActionPerformed
 
     private void tfLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfLoginMouseClicked
+        evt.getClass();
         tfLogin.setText("");
     }//GEN-LAST:event_tfLoginMouseClicked
 
     private void tfSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfSenhaFocusGained
         // TODO add your handling code here:
+        evt.getClass();
         tfSenha.setText("");
     }//GEN-LAST:event_tfSenhaFocusGained
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
+        evt.getClass();
         int ok=0;
         FuncionarioDAO fdao = new FuncionarioDAO();
         for (Funcionario f : fdao.ListarFunc()){
@@ -199,11 +217,13 @@ public class HomeOk extends javax.swing.JFrame {
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
         // TODO add your handling code here:
+        evt.getLocationOnScreen();
         setColor(jPanel2);
     }//GEN-LAST:event_jPanel2MouseEntered
 
     private void jPanel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseExited
         // TODO add your handling code here:
+        evt.getLocationOnScreen();
         resetColor(jPanel2);
     }//GEN-LAST:event_jPanel2MouseExited
 
@@ -252,21 +272,5 @@ public class HomeOk extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    public javax.swing.JTextField tfLogin;
-    public javax.swing.JPasswordField tfSenha;
-    // End of variables declaration//GEN-END:variables
+   
 }

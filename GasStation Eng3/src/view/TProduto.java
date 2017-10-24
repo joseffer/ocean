@@ -23,6 +23,29 @@ import java.util.Calendar;
  */
 public class TProduto extends javax.swing.JFrame {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btExcluir;
+    private datechooser.beans.DateChooserCombo dcCompra;
+    private datechooser.beans.DateChooserCombo dcValidade;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField tfCodigo;
+    private javax.swing.JTextArea tfDescricao;
+    private javax.swing.JTextField tfFornecedor;
+    private javax.swing.JTextField tfNomeProd;
+    private javax.swing.JTextField tfQtd;
+    private javax.swing.JTextField tfValor;
+    // End of variables declaration//GEN-END:variables
+
     /**
      * Creates new form TProduto
      */
@@ -52,8 +75,8 @@ public class TProduto extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         tfFornecedor = new javax.swing.JTextField();
-        BtCadastrar = new javax.swing.JButton();
-        BtExcluir = new javax.swing.JButton();
+        btCadastrar = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
         dcCompra = new datechooser.beans.DateChooserCombo();
         dcValidade = new datechooser.beans.DateChooserCombo();
         jLabel8 = new javax.swing.JLabel();
@@ -119,16 +142,16 @@ public class TProduto extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 252, -1, -1));
         getContentPane().add(tfFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 273, 380, -1));
 
-        BtCadastrar.setText("Cadastrar");
-        BtCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtCadastrarActionPerformed(evt);
+                btCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 311, -1, -1));
+        getContentPane().add(btCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 311, -1, -1));
 
-        BtExcluir.setText("Excluir");
-        getContentPane().add(BtExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 311, -1, -1));
+        btExcluir.setText("Excluir");
+        getContentPane().add(btExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 311, -1, -1));
 
         dcCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
             new datechooser.view.appearance.ViewAppearance("custom",
@@ -201,12 +224,13 @@ public class TProduto extends javax.swing.JFrame {
 
     private void tfNomeProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeProdActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_tfNomeProdActionPerformed
 
-    private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
-
-
+            
+            evt.getClass();
        
             Produto p = new Produto(tfNomeProd.getText(),                
                 Float.parseFloat(tfValor.getText()),
@@ -229,11 +253,11 @@ public class TProduto extends javax.swing.JFrame {
         
         
                 
-    }//GEN-LAST:event_BtCadastrarActionPerformed
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        
+         evt.getClass();
     }//GEN-LAST:event_formWindowClosing
 
     /**
@@ -271,26 +295,5 @@ public class TProduto extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtCadastrar;
-    private javax.swing.JButton BtExcluir;
-    private datechooser.beans.DateChooserCombo dcCompra;
-    private datechooser.beans.DateChooserCombo dcValidade;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField tfCodigo;
-    private javax.swing.JTextArea tfDescricao;
-    private javax.swing.JTextField tfFornecedor;
-    private javax.swing.JTextField tfNomeProd;
-    private javax.swing.JTextField tfQtd;
-    private javax.swing.JTextField tfValor;
-    // End of variables declaration//GEN-END:variables
+    
 }
