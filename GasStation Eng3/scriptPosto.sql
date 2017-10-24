@@ -9,7 +9,7 @@ create table Produto(
 	qtdArmazenada float,
     valor float,
 	compra varchar(10),
-    validade
+    validade varchar(10),
 	unique(IDProd)
 );
 

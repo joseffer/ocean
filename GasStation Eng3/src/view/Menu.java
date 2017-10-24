@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  */
 public class Menu extends javax.swing.JFrame {
 
-      // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -157,6 +157,9 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 120, 100));
 
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel7MouseEntered(evt);
             }
@@ -418,6 +421,12 @@ public class Menu extends javax.swing.JFrame {
        new TAjuda().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel11MouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+        evt.getLocationOnScreen();
+        new Tvenda().setVisible(true);
+    }//GEN-LAST:event_jPanel7MouseClicked
 
     public void setColor(JPanel panel)
  {

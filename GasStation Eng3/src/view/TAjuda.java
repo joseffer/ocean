@@ -11,7 +11,7 @@ package view;
  */
 public class TAjuda extends javax.swing.JFrame {
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -73,7 +73,6 @@ public class TAjuda extends javax.swing.JFrame {
         jTextArea1.setText("\t\tAjuda do Sistema\n\nEste sistema tem como objetivo controlar as atividades básicas de um posto de gasolina. Com ele é possivel cadastrar funcionários (Gerente ou Frentista), verificar estoque de mercadorias, serviço de vendas de produtos, verificar folha de pagamento para os funcionários e relatório de vendas, e verificar o nível de combustível. Segue a explicação de cada funcionalidade do sistema\n\nFolha de Pagamento (Área exclusiva de Gerente): Nesta seção o gerente poderá emitir um holerite padrão do funcionário desejado, onde será calculado as horas trabalhadas, desontos e impostos, e no fim seu salário do mês.\n\nCombustível: Nesta seção é possivel visualizar a quantidade de combustível armazenda nos tanques( Etanol e Gasolina). Será apresentado gráficos com alertas se o combustível atingir o nível mínimo crítico.\n\nVendas: Na seção de vendas será possível efetuar as vendas dos produtos da loja de conveniências que foram previamente cadastrados na seção cadastro de produtos.\n\nEstoque: Nesta seção é possível verificar e/ou alterar a quantidade em estoque dos produtos. É oferecida também a possibilidade de download da planinha de estoque dos produtos.\n\nCadastro de Produtos (Área exclusiva de Gerente) : Nesta seção o gerente cadastra os produtos que serão vendidos na seção Vendas. É necessário se atentar que os campos do formulario precisam ser preenchidos da forma correta, os campos \"Nome do Produto\", \"Descrição\" e \"Fornecedor\" podem ser preenchidos com letras ou números,  os campos \"Código do produto\", e \"Quantidade\" são números inteiros, e o campo \" Valor\" é um campo com formatação monetária, ex \"1,99\".\n\nCadastro de Funcionários (Área exclusiva de Gerente) : Nesta seção o gerente cadastra os funcionários que poderão acessar o sistema. É necessário se atentar que os campos do formulario precisam ser preenchidos da forma correta, os campos \"Nome\", \"Endereço\",\"Cargo\" \"Login\" e \"Senha\" podem ser preenchidos com letras ou números,  os campos \"RG\", \"CPF\" e \"INSS\" são números inteiros, e o campo \" Salário\" é um campo com formatação monetária, ex \"1999,00\".\n\nRelatório Financeiro (Área exclusiva de Gerente): Nesta seção o gerente pode emitir um relatório financeiro, escolhendo de um único dia, ou entre datas especifícas. Este relatório irá conter a quantidade de produtos e combustível vendido, e também o quanto foi gasto com funcionários.\n\nQualquer dúvida ou problema entrar em contato com um dos integrantes do Grupo Ocean.\n\nPetrus Radamés - p157018@g.unicamp.br\nJoseffer Leite - j155993@g.unicamp.br");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextArea1.setCaretPosition(0);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 450, 300));
