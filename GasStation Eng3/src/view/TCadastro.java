@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import model.Funcionario;
 import modelDAO.FuncionarioDAO;
 import javax.swing.JPanel;
@@ -15,11 +16,10 @@ import javax.swing.JPanel;
  */
 public class TCadastro extends javax.swing.JFrame {
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TfSenha;
     private javax.swing.JLabel TfUsuario;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -41,7 +41,7 @@ public class TCadastro extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField tfCargo;
+    private javax.swing.JComboBox<String> jcCargo;
     private javax.swing.JTextField tfCpf;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfInss;
@@ -82,12 +82,10 @@ public class TCadastro extends javax.swing.JFrame {
         tfEndereco = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         tfSalario = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         tfInss = new javax.swing.JTextField();
-        tfCargo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         TfUsuario = new javax.swing.JLabel();
         tfUsuario = new javax.swing.JTextField();
@@ -102,6 +100,7 @@ public class TCadastro extends javax.swing.JFrame {
         jSeparator10 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jcCargo = new javax.swing.JComboBox<>();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -115,7 +114,7 @@ public class TCadastro extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CPF:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
         tfCpf.setBackground(new java.awt.Color(36, 47, 65));
         tfCpf.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
@@ -125,7 +124,7 @@ public class TCadastro extends javax.swing.JFrame {
                 tfCpfActionPerformed(evt);
             }
         });
-        jPanel1.add(tfCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 150, 30));
+        jPanel1.add(tfCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 150, 30));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,13 +186,6 @@ public class TCadastro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(tfSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 124, 30));
-
-        jCheckBox1.setBackground(new java.awt.Color(232, 81, 74));
-        jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Gerente");
-        jCheckBox1.setBorder(null);
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 70, 30));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 490, 10));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 180, 20));
 
@@ -206,16 +198,6 @@ public class TCadastro extends javax.swing.JFrame {
         tfInss.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
         tfInss.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(tfInss, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 119, 30));
-
-        tfCargo.setBackground(new java.awt.Color(36, 47, 65));
-        tfCargo.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfCargo.setForeground(new java.awt.Color(255, 255, 255));
-        tfCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCargoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(tfCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 90, 30));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -251,7 +233,7 @@ public class TCadastro extends javax.swing.JFrame {
         TfSenha.setForeground(new java.awt.Color(255, 255, 255));
         TfSenha.setText("Senha:");
         jPanel1.add(TfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, 11));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 180, 10));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 180, 10));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 170, -1));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 130, 10));
@@ -280,7 +262,10 @@ public class TCadastro extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 120, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 510, 350));
+        jcCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Frentista" }));
+        jPanel1.add(jcCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 510, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -313,7 +298,6 @@ public class TCadastro extends javax.swing.JFrame {
     public void limpar(){
         tfNome.setText(null);
         tfEndereco.setText(null);
-        tfCargo.setText(null);
         tfSalario.setText(null);
         tfRg.setText(null);
         tfCpf.setText(null);
@@ -332,18 +316,14 @@ public class TCadastro extends javax.swing.JFrame {
         evt.getClass();
     }//GEN-LAST:event_tfSalarioActionPerformed
 
-    private void tfCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCargoActionPerformed
-        // TODO add your handling code here:
-        evt.getClass();
-    }//GEN-LAST:event_tfCargoActionPerformed
-
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
         //Codigo de cadastro aqui
+       // JOptionPane.showMessageDialog(null,jcCargo.getItemAt(WIDTH));
         evt.getLocationOnScreen();
         Funcionario F = new Funcionario(tfNome.getText(),
             tfEndereco.getText(),
-            tfCargo.getText(),
+            jcCargo.getSelectedItem().toString(),
             Float.parseFloat(tfSalario.getText()),
             tfRg.getText(),
             tfCpf.getText(), 
