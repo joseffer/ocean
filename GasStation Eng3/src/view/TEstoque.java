@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Produto;
 import modelDAO.ProdutoDAO;
@@ -15,15 +16,19 @@ import modelDAO.ProdutoDAO;
  */
 public class TEstoque extends javax.swing.JFrame {
 
-      // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableProduto;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jtNome;
+    private javax.swing.JTextField jtQtd;
+    private javax.swing.JTextField jtValor;
+    private javax.swing.JTextField jtidProd;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -43,34 +48,56 @@ public class TEstoque extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableProduto = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jtValor = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jtQtd = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jtidProd = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jtNome = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(36, 47, 65));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Produto: ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 28, -1, -1));
+        jTableProduto.setBackground(new java.awt.Color(36, 47, 65));
+        jTableProduto.setForeground(new java.awt.Color(255, 255, 255));
+        jTableProduto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "IDProd", "Nome", "Descrição", "Fornecedor", "Quantidade", "valor","DataCompra","Validade"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false ,false , false
+            };
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Quantidade: ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 67, -1, -1));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableProdutoMouseClicked(evt);
+            }
+        });
+        jTableProduto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTableProdutoKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableProduto);
 
-        jTextField1.setName("TfProduto"); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 25, 100, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 104, 660, 287));
 
-        jTextField2.setName("TfQuantidade"); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 64, 100, -1));
+        jPanel1.setBackground(new java.awt.Color(36, 47, 65));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Atualizar");
         jButton1.setName("BAtualizar"); // NOI18N
@@ -79,51 +106,97 @@ public class TEstoque extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 63, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        jTableProduto.setBackground(new java.awt.Color(36, 47, 65));
-        jTableProduto.setForeground(new java.awt.Color(255, 255, 255));
-        jTableProduto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-            },
-            new String [] {
-                "IDProd", "Nome", "Descrição", "Fornecedor", "Quantidade", "valor"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        jtValor.setName("TfQuantidade"); // NOI18N
+        jPanel1.add(jtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 100, -1));
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTableProduto);
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("valor");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, -1, -1));
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 104, -1, 287));
+        jtQtd.setName("TfProduto"); // NOI18N
+        jPanel1.add(jtQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 100, -1));
 
-        jPanel1.setBackground(new java.awt.Color(36, 47, 65));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("IdProduto");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 100, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-        );
+        jtidProd.setName("TfProduto"); // NOI18N
+        jPanel1.add(jtidProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 50, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 420));
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nome Prod");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 120, -1));
+
+        jtNome.setName("TfQuantidade"); // NOI18N
+        jPanel1.add(jtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 150, -1));
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Quantidade");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       
         evt.getClass();
+        
+        if(jTableProduto.getSelectedRow() != -1 ){
+            Produto p = new Produto(jtNome.getText(),                
+                Float.parseFloat(jtValor.getText()),
+                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),2).toString(),
+                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),6).toString(),
+                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),7).toString(),
+                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),3).toString(),
+                (float)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),4));
+                p.setCodigo((int)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0));
+       
+             ProdutoDAO dao = new ProdutoDAO();
+             dao.update(p);
+             carregaTabelaPRod();
+            
+            
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTableProdutoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableProdutoKeyReleased
+        // TODO add your handling code here:
+                            
+        if(jTableProduto.getSelectedRow() != -1 ){
+        
+        jtidProd.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0 ).toString());
+        jtNome.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),1).toString());
+        jtQtd.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),4).toString());
+        jtValor.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),5).toString());
+        
+        }
+        
+        
+        
+    }//GEN-LAST:event_jTableProdutoKeyReleased
+
+    private void jTableProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProdutoMouseClicked
+        // TODO add your handling code here:
+        
+         if(jTableProduto.getSelectedRow() != -1 ){
+        
+        jtidProd.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0 ).toString());
+        jtNome.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),1).toString());
+        jtQtd.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),4).toString());
+        jtValor.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),5).toString());
+        
+        }
+    }//GEN-LAST:event_jTableProdutoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -134,6 +207,11 @@ public class TEstoque extends javax.swing.JFrame {
     public void carregaTabelaPRod(){
         
             DefaultTableModel  model= (DefaultTableModel) jTableProduto.getModel();
+            model.setNumRows(0);
+            
+            
+          
+         
             ProdutoDAO pdao = new ProdutoDAO();
             
             for (Produto p: pdao.listar()){
@@ -143,7 +221,9 @@ public class TEstoque extends javax.swing.JFrame {
                 p.getDescricao(),
                 p.getFornecedor(),
                 p.getQntArmazenada(),
-                p.getValor()
+                p.getValor(),
+                p.getDataCompra(),
+                p.getDataValidade()
                 
                 });
                 

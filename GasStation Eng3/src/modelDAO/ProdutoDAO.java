@@ -66,6 +66,7 @@ public class ProdutoDAO {
                 produto.setQntArmazenada(rs.getInt("qtdArmazenada"));
                 produto.setValor(rs.getFloat("valor"));
                 produto.setDataCompra(rs.getString("compra"));
+                produto.setDataValidade(rs.getString("validade"));
                 lprod.add(produto);
                 
             }
@@ -78,6 +79,35 @@ public class ProdutoDAO {
         }
     return  lprod;
     }
+    
+        public void update (Produto p){
+        Connection con = Conexao.getConnection();
+        PreparedStatement stmt =null;
+        
+        try {
+            stmt = con.prepareStatement("UPDATE produto SET nome=?,descricao=?,fornecedor=?,qtdArmazenada=?,valor=?,compra=?,validade=? WHERE idProd = ? ");
+            stmt.setString(1,p.getNome() );
+            stmt.setString(2,p.getDescricao() );
+            stmt.setString(3,p.getFornecedor() );
+            stmt.setFloat(4,p.getQntArmazenada());
+            stmt.setFloat(5, p.getValor());
+            stmt.setString(6, p.getDataCompra());
+            stmt.setString(7, p.getDataValidade());
+            stmt.setInt(8, p.getCodigo());
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"atualizado com sucesso ");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"erro ao atualizar "+ex);
+        }finally{
+            Conexao.closeConnection(con, stmt);
+        
+        }
+               
+    }
+    
+    
+    
+    
     
     
     
