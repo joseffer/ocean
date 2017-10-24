@@ -18,6 +18,7 @@ public class TEstoque extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -60,6 +61,7 @@ public class TEstoque extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jtNome = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(36, 47, 65));
@@ -99,14 +101,14 @@ public class TEstoque extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Atualizar");
+        jButton1.setText("Excluir");
         jButton1.setName("BAtualizar"); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, -1, -1));
 
         jtValor.setName("TfQuantidade"); // NOI18N
         jPanel1.add(jtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 100, -1));
@@ -140,6 +142,15 @@ public class TEstoque extends javax.swing.JFrame {
         jLabel8.setText("Quantidade");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
+        jButton2.setText("Atualizar");
+        jButton2.setName("BAtualizar"); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 420));
 
         pack();
@@ -151,17 +162,12 @@ public class TEstoque extends javax.swing.JFrame {
         evt.getClass();
         
         if(jTableProduto.getSelectedRow() != -1 ){
-            Produto p = new Produto(jtNome.getText(),                
-                Float.parseFloat(jtValor.getText()),
-                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),2).toString(),
-                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),6).toString(),
-                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),7).toString(),
-                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),3).toString(),
-                (float)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),4));
+            Produto p = new Produto();              
+
                 p.setCodigo((int)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0));
        
              ProdutoDAO dao = new ProdutoDAO();
-             dao.update(p);
+             dao.delete(p);
              carregaTabelaPRod();
             
             
@@ -197,6 +203,26 @@ public class TEstoque extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_jTableProdutoMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+               if(jTableProduto.getSelectedRow() != -1 ){
+            Produto p = new Produto(jtNome.getText(),                
+                Float.parseFloat(jtValor.getText()),
+                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),2).toString(),
+                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),6).toString(),
+                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),7).toString(),
+                jTableProduto.getValueAt(jTableProduto.getSelectedRow(),3).toString(),
+                (float)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),4));
+                p.setCodigo((int)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0));
+       
+             ProdutoDAO dao = new ProdutoDAO();
+             dao.update(p);
+             carregaTabelaPRod();
+            
+            
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
