@@ -10,8 +10,10 @@ public class Estoque {
     ArrayList<Combustivel> QtdComb = new ArrayList<>();
     
     public void verificarQnt() {
+        //Metodo a ser implementado
     }
 
     public void verificarDataVenc() {
+        //Metodo a ser implementado
     }
 }

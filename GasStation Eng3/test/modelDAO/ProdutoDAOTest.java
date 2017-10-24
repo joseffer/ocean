@@ -33,7 +33,7 @@ public class ProdutoDAOTest {
     @Test
     public void testListar() {
      ProdutoDAO dao = new ProdutoDAO();
-     dao.Listar();
+     dao.listar();
     }
     
 }

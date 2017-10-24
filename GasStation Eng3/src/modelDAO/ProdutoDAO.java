@@ -8,11 +8,9 @@ package modelDAO;
 import control.Conexao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -51,7 +49,7 @@ public class ProdutoDAO {
                
     }
     
-    public List<Produto> Listar() {
+    public List<Produto> listar() {
         Connection con = Conexao.getConnection();
         PreparedStatement stmt =null;
         ResultSet rs = null;

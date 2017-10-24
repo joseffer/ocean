@@ -136,7 +136,7 @@ public class TEstoque extends javax.swing.JFrame {
             DefaultTableModel  model= (DefaultTableModel) jTableProduto.getModel();
             ProdutoDAO pdao = new ProdutoDAO();
             
-            for (Produto p: pdao.Listar()){
+            for (Produto p: pdao.listar()){
                 model.addRow(new Object[]{
                 p.getCodigo(),
                 p.getNome(),

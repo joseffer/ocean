@@ -1,8 +1,19 @@
 package model;
 
-import java.util.Date;
+
 
 public class Produto {
+    
+    private String nome;
+    private int codigo;
+    private float valor;
+    private String descricao;
+
+    private String dataCompra;
+    private String dataValidade;
+
+    private String fornecedor;
+    private float qntArmazenada;
 
     /**
      * @return the dataValidade
@@ -18,21 +29,6 @@ public class Produto {
         this.dataValidade = dataValidade;
     }
 
-    /**
-     * @return the nome
-     */
-    private String nome;
-    private int codigo;
-    private float valor;
-    private String descricao;
-
-    private String dataCompra;
-    private String dataValidade;
-
-    private String fornecedor;
-    private float qntArmazenada;
-    
-    
     
     public Produto(){
     
