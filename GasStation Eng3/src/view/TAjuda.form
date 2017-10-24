@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="0" green="0" red="0" type="rgb"/>
+    </Property>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="false"/>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="41" green="2f" red="24" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+            <MatteColorBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="260" height="300"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="false"/>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Century Gothic" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ajuda do Sistema"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="60" y="10" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons/gas-station.png"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="0" y="30" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder bevelType="1">
+              <Color PropertyName="highlightOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+              <Color PropertyName="highlightInner" blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+        <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+        <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder roundedCorners="true"/>
+          </Border>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor Padr&#xe3;o"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="260" y="0" width="450" height="300"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Century Gothic" size="12" style="0"/>
+            </Property>
+            <Property name="lineWrap" type="boolean" value="true"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="&#x9;&#x9;Ajuda do Sistema&#xa;&#xa;Este sistema tem como objetivo controlar as atividades b&#xe1;sicas de um posto de gasolina. Com ele &#xe9; possivel cadastrar funcion&#xe1;rios (Gerente ou Frentista), verificar estoque de mercadorias, servi&#xe7;o de vendas de produtos, verificar folha de pagamento para os funcion&#xe1;rios e relat&#xf3;rio de vendas, e verificar o n&#xed;vel de combust&#xed;vel. Segue a explica&#xe7;&#xe3;o de cada funcionalidade do sistema&#xa;&#xa;Folha de Pagamento (&#xc1;rea exclusiva de Gerente): Nesta se&#xe7;&#xe3;o o gerente poder&#xe1; emitir um holerite padr&#xe3;o do funcion&#xe1;rio desejado, onde ser&#xe1; calculado as horas trabalhadas, desontos e impostos, e no fim seu sal&#xe1;rio do m&#xea;s.&#xa;&#xa;Combust&#xed;vel: Nesta se&#xe7;&#xe3;o &#xe9; possivel visualizar a quantidade de combust&#xed;vel armazenda nos tanques( Etanol e Gasolina). Ser&#xe1; apresentado gr&#xe1;ficos com alertas se o combust&#xed;vel atingir o n&#xed;vel m&#xed;nimo cr&#xed;tico.&#xa;&#xa;Vendas: Na se&#xe7;&#xe3;o de vendas ser&#xe1; poss&#xed;vel efetuar as vendas dos produtos da loja de conveni&#xea;ncias que foram previamente cadastrados na se&#xe7;&#xe3;o cadastro de produtos.&#xa;&#xa;Estoque: Nesta se&#xe7;&#xe3;o &#xe9; poss&#xed;vel verificar e/ou alterar a quantidade em estoque dos produtos. &#xc9; oferecida tamb&#xe9;m a possibilidade de download da planinha de estoque dos produtos.&#xa;&#xa;Cadastro de Produtos (&#xc1;rea exclusiva de Gerente) : Nesta se&#xe7;&#xe3;o o gerente cadastra os produtos que ser&#xe3;o vendidos na se&#xe7;&#xe3;o Vendas. &#xc9; necess&#xe1;rio se atentar que os campos do formulario precisam ser preenchidos da forma correta, os campos &quot;Nome do Produto&quot;, &quot;Descri&#xe7;&#xe3;o&quot; e &quot;Fornecedor&quot; podem ser preenchidos com letras ou n&#xfa;meros,  os campos &quot;C&#xf3;digo do produto&quot;, e &quot;Quantidade&quot; s&#xe3;o n&#xfa;meros inteiros, e o campo &quot; Valor&quot; &#xe9; um campo com formata&#xe7;&#xe3;o monet&#xe1;ria, ex &quot;1,99&quot;.&#xa;&#xa;Cadastro de Funcion&#xe1;rios (&#xc1;rea exclusiva de Gerente) : Nesta se&#xe7;&#xe3;o o gerente cadastra os funcion&#xe1;rios que poder&#xe3;o acessar o sistema. &#xc9; necess&#xe1;rio se atentar que os campos do formulario precisam ser preenchidos da forma correta, os campos &quot;Nome&quot;, &quot;Endere&#xe7;o&quot;,&quot;Cargo&quot; &quot;Login&quot; e &quot;Senha&quot; podem ser preenchidos com letras ou n&#xfa;meros,  os campos &quot;RG&quot;, &quot;CPF&quot; e &quot;INSS&quot; s&#xe3;o n&#xfa;meros inteiros, e o campo &quot; Sal&#xe1;rio&quot; &#xe9; um campo com formata&#xe7;&#xe3;o monet&#xe1;ria, ex &quot;1999,00&quot;.&#xa;&#xa;Relat&#xf3;rio Financeiro (&#xc1;rea exclusiva de Gerente): Nesta se&#xe7;&#xe3;o o gerente pode emitir um relat&#xf3;rio financeiro, escolhendo de um &#xfa;nico dia, ou entre datas especif&#xed;cas. Este relat&#xf3;rio ir&#xe1; conter a quantidade de produtos e combust&#xed;vel vendido, e tamb&#xe9;m o quanto foi gasto com funcion&#xe1;rios.&#xa;&#xa;Qualquer d&#xfa;vida ou problema entrar em contato com um dos integrantes do Grupo Ocean.&#xa;&#xa;Petrus Radam&#xe9;s - p157018@g.unicamp.br&#xa;Joseffer Leite - j155993@g.unicamp.br"/>
+            <Property name="wrapStyleWord" type="boolean" value="true"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
