@@ -85,4 +85,53 @@ public class FuncionarioDAO {
         
         return lFunc;
        }
+       
+       
+       
+             public void updateFuncinario (Funcionario f){
+        Connection con = Conexao.getConnection();
+        PreparedStatement stmt =null;
+        
+        try {
+            stmt = con.prepareStatement("UPDATE funcionario set nome=?,endereco=?,cargo=?,salario=?,rg=?,cpf=?,inss=?,login=?,senha=? ");
+            stmt.setString(1,f.getNome() );
+            stmt.setString(2,f.getEndereco() );
+            stmt.setString(3,f.getCargo() );
+            stmt.setFloat(4,f.getSalario());
+            stmt.setString(5, f.getRg());
+            stmt.setString(6, f.getCpf());
+            stmt.setDouble(7, f.getInss());
+            stmt.setString(8, f.getLogin());
+            stmt.setString(9, f.getSenha());
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Atualizado com sucesso ");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"erro ao Atualizar "+ex);
+        }finally{
+            Conexao.closeConnection(con, stmt);
+        
+        }
+               
+    }
+             
+        public void delete (Funcionario f){
+        Connection con = Conexao.getConnection();
+        PreparedStatement stmt =null;
+        
+        try {
+            stmt = con.prepareStatement("DELETE FROM funci WHERE idFunc = ? ");
+
+          //  stmt.setInt(1, p.getCodigo());
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Deletado com sucesso ");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"erro ao deletar "+ex);
+        }finally{
+            Conexao.closeConnection(con, stmt);
+        
+        }
+               
+    }     
+             
+             
 }
