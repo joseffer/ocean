@@ -444,7 +444,9 @@ public class Menu extends javax.swing.JFrame {
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
         // TODO add your handling code here:
         evt.getLocationOnScreen();
-       new TCombustivel().setVisible(true);
+      TCombustivel objFrame = new TCombustivel();
+      objFrame.setVisible(true);
+       
     }//GEN-LAST:event_jPanel5MouseClicked
 
 

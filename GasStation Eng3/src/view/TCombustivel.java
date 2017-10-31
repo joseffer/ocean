@@ -38,6 +38,7 @@ public class TCombustivel extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         progressPanel = new view.CustomPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,6 +83,19 @@ public class TCombustivel extends javax.swing.JFrame {
 
         jPanel1.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 290));
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 390));
 
         pack();
@@ -90,6 +104,27 @@ public class TCombustivel extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       new Thread(new Runnable() {
+            @Override
+            public void run() {
+for (int num = 1; num <= 100; num++) {
+            
+               try {
+                   progressPanel.UpdateProgress(num);
+                   progressPanel.repaint();
+                   Thread.sleep(50);
+               } catch (InterruptedException ex) {
+                   Logger.getLogger(TCombustivel.class.getName()).log(Level.SEVERE, null, ex);
+               }
+        }            }
+        }) .start();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        encherProgresso();
+    }//GEN-LAST:event_jButton1MouseClicked
     
     private void encherProgresso(){
         new Thread(new Runnable() {
@@ -148,6 +183,7 @@ for (int num = 1; num <= 100; num++) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
