@@ -265,7 +265,7 @@ public class TCadastro extends javax.swing.JFrame {
         jcCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Frentista" }));
         jPanel1.add(jcCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 510, 350));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
