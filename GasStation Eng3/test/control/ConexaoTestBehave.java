@@ -28,7 +28,7 @@ public class ConexaoTestBehave {
     
     @Given("Given um usuario com login de $login e senha de $senha")
     public void umLogin(String login, String senha){
-        funcionario = new FuncionarioDAO();
+        funcionario = new FuncionarioDAO(); // funcionario não é injetado
         
     }
     
