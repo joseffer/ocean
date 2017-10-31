@@ -162,15 +162,10 @@ public class TEstoque extends javax.swing.JFrame {
         evt.getClass();
         
         if(jTableProduto.getSelectedRow() != -1 ){
-            Produto p = new Produto();              
+        
+           control.Control.excluirProduto((int)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0));
 
-                p.setCodigo((int)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0));
-       
-             ProdutoDAO dao = new ProdutoDAO();
-             dao.delete(p);
-             carregaTabelaPRod();
-            
-            
+             carregaTabelaPRod();       
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -207,19 +202,19 @@ public class TEstoque extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
                if(jTableProduto.getSelectedRow() != -1 ){
-            Produto p = new Produto(jtNome.getText(),                
+                
+                  control.Control.updateProduto(
+                (int)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0),
+                jtNome.getText(),                
                 Float.parseFloat(jtValor.getText()),
                 jTableProduto.getValueAt(jTableProduto.getSelectedRow(),2).toString(),
                 jTableProduto.getValueAt(jTableProduto.getSelectedRow(),6).toString(),
                 jTableProduto.getValueAt(jTableProduto.getSelectedRow(),7).toString(),
                 jTableProduto.getValueAt(jTableProduto.getSelectedRow(),3).toString(),
                 (float)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),4));
-                p.setCodigo((int)jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0));
-       
-             ProdutoDAO dao = new ProdutoDAO();
-             dao.update(p);
-             carregaTabelaPRod();
-            
+                 carregaTabelaPRod(); 
+                 
+                     
             
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -238,9 +233,9 @@ public class TEstoque extends javax.swing.JFrame {
             
           
          
-            ProdutoDAO pdao = new ProdutoDAO();
+           
             
-            for (Produto p: pdao.listar()){
+            for (Produto p: control.Control.listarProdutos()){
                 model.addRow(new Object[]{
                 p.getCodigo(),
                 p.getNome(),

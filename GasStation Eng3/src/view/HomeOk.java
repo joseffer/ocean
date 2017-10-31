@@ -195,19 +195,9 @@ public class HomeOk extends javax.swing.JFrame {
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
         evt.getClass();
-        int ok=0;
-        FuncionarioDAO fdao = new FuncionarioDAO();
-        for (Funcionario f : fdao.ListarFunc()){
-                
-                if((f.getLogin().equals(tfLogin.getText())) && (f.getSenha().equals( tfSenha.getText()))){
-                    ok=1;
-                    break;
-                }else{
-                    ok=2;              
-               } 
-        }
+
         
-         if(ok==1){
+         if(control.Control.validarUsauario(tfLogin.getText(), tfSenha.getText())){
             new Menu().setVisible(true);
             dispose();
          }else{

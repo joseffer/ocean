@@ -72,9 +72,9 @@ public class TFolhadePagamento extends javax.swing.JFrame {
         
             DefaultTableModel  model= (DefaultTableModel) jTableFuncionario.getModel();
             model.setNumRows(0);
-            FuncionarioDAO fdao = new FuncionarioDAO();
             
-            for (Funcionario f: fdao.ListarFunc()){
+            
+            for (Funcionario f: control.Control.listarFuncionarios()){
                 model.addRow(new Object[]{
                 f.getRg(),
                 f.getCpf(),

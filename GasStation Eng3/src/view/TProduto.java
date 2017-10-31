@@ -248,27 +248,13 @@ public class TProduto extends javax.swing.JFrame {
             
             evt.getClass();
        
-            Produto p = new Produto(tfNomeProd.getText(),                
+            control.Control.addProduto(tfNomeProd.getText(),                
                 Float.parseFloat(tfValor.getText()),
                 tfDescricao.getText(),
                 dcCompra.getText(),
                 dcValidade.getText(),
                 tfFornecedor.getText(),
-                Float.parseFloat(tfQtd.getText()));  
-       
-             ProdutoDAO dao = new ProdutoDAO();
-             dao.create(p);
-  
-
-
-        
-        
-
-        
-        //contruindo  um objeto produto
-        
-        
-                
+                Float.parseFloat(tfQtd.getText()));            
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
