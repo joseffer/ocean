@@ -5,6 +5,7 @@
  */
 package control;
 
+import model.Conexao;
 import java.sql.Connection;
 import org.junit.Test;
 import static org.junit.Assert.*;
