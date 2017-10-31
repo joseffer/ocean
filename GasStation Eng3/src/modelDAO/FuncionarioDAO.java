@@ -5,7 +5,7 @@
  */
 package modelDAO;
 
-import control.Conexao;
+import model.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

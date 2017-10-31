@@ -29,7 +29,6 @@ public class TProduto extends javax.swing.JFrame {
     private datechooser.beans.DateChooserCombo dcCompra;
     private datechooser.beans.DateChooserCombo dcValidade;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -38,7 +37,6 @@ public class TProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField tfCodigo;
     private javax.swing.JTextArea tfDescricao;
     private javax.swing.JTextField tfFornecedor;
     private javax.swing.JTextField tfNomeProd;
@@ -64,24 +62,22 @@ public class TProduto extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         tfNomeProd = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        tfCodigo = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        tfValor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tfDescricao = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        tfFornecedor = new javax.swing.JTextField();
-        btCadastrar = new javax.swing.JButton();
-        btExcluir = new javax.swing.JButton();
         dcCompra = new datechooser.beans.DateChooserCombo();
         dcValidade = new datechooser.beans.DateChooserCombo();
-        jLabel8 = new javax.swing.JLabel();
-        tfQtd = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        tfValor = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfQtd = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        tfFornecedor = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        btCadastrar = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(36, 47, 65));
@@ -104,18 +100,6 @@ public class TProduto extends javax.swing.JFrame {
         });
         getContentPane().add(tfNomeProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, 380, -1));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Código do Produto");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 63, -1, -1));
-        getContentPane().add(tfCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, 175, -1));
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Valor");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 63, -1, -1));
-        getContentPane().add(tfValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 84, 57, -1));
-
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Descrição");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 115, -1, -1));
@@ -135,23 +119,6 @@ public class TProduto extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Validade");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 200, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Fornecedor");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 252, -1, -1));
-        getContentPane().add(tfFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 273, 380, -1));
-
-        btCadastrar.setText("Cadastrar");
-        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 311, -1, -1));
-
-        btExcluir.setText("Excluir");
-        getContentPane().add(btExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 311, -1, -1));
 
         dcCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
             new datechooser.view.appearance.ViewAppearance("custom",
@@ -198,23 +165,72 @@ public class TProduto extends javax.swing.JFrame {
     getContentPane().add(dcCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 221, -1, -1));
     getContentPane().add(dcValidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 221, -1, -1));
 
+    jPanel1.setBackground(new java.awt.Color(36, 47, 65));
+
+    jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+    jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel3.setText("Valor");
+
     jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
     jLabel8.setForeground(new java.awt.Color(255, 255, 255));
     jLabel8.setText("Quantidade");
-    getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 63, -1, -1));
-    getContentPane().add(tfQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 84, 57, -1));
 
-    jPanel1.setBackground(new java.awt.Color(36, 47, 65));
+    jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+    jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel7.setText("Fornecedor");
+
+    btCadastrar.setText("Cadastrar");
+    btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btCadastrarActionPerformed(evt);
+        }
+    });
+
+    btExcluir.setText("Excluir");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 400, Short.MAX_VALUE)
+        .addGroup(jPanel1Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(tfValor, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel3))
+            .addGap(18, 18, 18)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(btCadastrar)
+                    .addGap(41, 41, 41)
+                    .addComponent(btExcluir))
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tfQtd)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel7)
+                        .addComponent(tfFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 350, Short.MAX_VALUE)
+        .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGap(62, 62, 62)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel3)
+                .addComponent(jLabel8)
+                .addComponent(jLabel7))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(tfValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(btCadastrar)
+                .addComponent(btExcluir))
+            .addGap(46, 46, 46))
     );
 
     getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
