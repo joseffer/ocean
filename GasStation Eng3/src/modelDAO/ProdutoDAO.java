@@ -5,7 +5,6 @@
  */
 package modelDAO;
 
-import model.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,22 +21,36 @@ import model.Produto;
  *
  * @author jo
  */
-public class ProdutoDAO {
+public class ProdutoDAO extends Conexao {
     
+     private static ProdutoDAO instance;
+     private static Connection myCONN;
+
+
+    public ProdutoDAO() {
+    }
     
-    public void create (Produto p){
+    public static ProdutoDAO getInstance() {
+        if (instance == null) {
+            instance = new ProdutoDAO();
+            myCONN = instance.getConnection();
+        }
+        return instance;
+    
+    }
+    public void create ( String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
         Connection con = Conexao.getConnection();
         PreparedStatement stmt =null;
         
         try {
             stmt = con.prepareStatement("INSERT INTO Produto(nome,descricao,fornecedor,qtdArmazenada,valor,compra,validade)VALUES(?,?,?,?,?,?,?) ");
-            stmt.setString(1,p.getNome() );
-            stmt.setString(2,p.getDescricao() );
-            stmt.setString(3,p.getFornecedor() );
-            stmt.setFloat(4,p.getQntArmazenada());
-            stmt.setFloat(5, p.getValor());
-            stmt.setString(6, p.getDataCompra());
-            stmt.setString(7, p.getDataValidade());
+            stmt.setString(1,nome );
+            stmt.setString(2,descricao );
+            stmt.setString(3,fornecedor );
+            stmt.setFloat(4,qntArmazenada);
+            stmt.setFloat(5, valor);
+            stmt.setString(6, dataCompra);
+            stmt.setString(7, dataValidade);
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"salvo com sucesso ");
         } catch (SQLException ex) {
@@ -80,21 +93,23 @@ public class ProdutoDAO {
     return  lprod;
     }
     
-        public void update (Produto p){
+        public void update ( int codigo,String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
         Connection con = Conexao.getConnection();
         PreparedStatement stmt =null;
         
         try {
             stmt = con.prepareStatement("UPDATE produto SET nome=?,descricao=?,fornecedor=?,qtdArmazenada=?,valor=?,compra=?,validade=? WHERE idProd = ? ");
-            stmt.setString(1,p.getNome() );
-            stmt.setString(2,p.getDescricao() );
-            stmt.setString(3,p.getFornecedor() );
-            stmt.setFloat(4,p.getQntArmazenada());
-            stmt.setFloat(5, p.getValor());
-            stmt.setString(6, p.getDataCompra());
-            stmt.setString(7, p.getDataValidade());
-            stmt.setInt(8, p.getCodigo());
+            stmt.setString(1,nome );
+            stmt.setString(2,descricao );
+            stmt.setString(3,fornecedor );
+            stmt.setFloat(4,qntArmazenada);
+            stmt.setFloat(5, valor);
+            stmt.setString(6, dataCompra);
+            stmt.setString(7, dataValidade);
+            stmt.setInt(8, codigo);
             stmt.executeUpdate();
+           
+        
             JOptionPane.showMessageDialog(null,"atualizado com sucesso ");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"erro ao atualizar "+ex);
@@ -103,14 +118,14 @@ public class ProdutoDAO {
         
         }
         }
-        public void delete (Produto p){
+        public void delete (int codigo){
         Connection con = Conexao.getConnection();
         PreparedStatement stmt =null;
         
         try {
             stmt = con.prepareStatement("DELETE FROM produto WHERE idProd = ? ");
 
-            stmt.setInt(1, p.getCodigo());
+            stmt.setInt(1, codigo);
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"Deletado com sucesso ");
         } catch (SQLException ex) {
