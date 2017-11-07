@@ -28,6 +28,7 @@ import static org.jbehave.core.reporters.Format.HTML;
 import static org.jbehave.core.reporters.Format.TXT;
 import static org.jbehave.core.reporters.Format.XML;
 import org.jbehave.core.reporters.StoryReporterBuilder;
+import org.jbehave.core.steps.CandidateSteps;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
@@ -37,6 +38,8 @@ import org.jbehave.core.steps.ParameterConverters;
  * @author ASUS
  */
 public class ConexaoStories extends JUnitStories {
+    
+    /*
     private final CrossReference xref = new CrossReference();
  
     public ConexaoStories() {
@@ -76,7 +79,18 @@ public class ConexaoStories extends JUnitStories {
                 .useStepPatternParser(new RegexPrefixCapturingPatternParser("%")) 
                 .useStepMonitor(xref.getStepMonitor());
     }
+*/
+    
+    public  List <CandidateSteps> candidateStepses(){
+        return new InstanceStepsFactory(configuration(), new ConexaoTestBehave()).createCandidateSteps();
+    }
+    
+    public Configuration configuration (){
+        return new MostUsefulConfiguration().useStoryLoader(new LoadFromClasspath(this.getClass())).useStoryReporterBuilder(new StoryReporterBuilder().withCodeLocation(CodeLocations.codeLocationFromClass(this.getClass())).withFormats(CONSOLE, TXT, HTML, XML));
+    }
+    
 
+    
     @Override
     protected List<String> storyPaths() {
         StoryFinder finder = new  StoryFinder();

@@ -321,7 +321,7 @@ public class TCadastro extends javax.swing.JFrame {
         //Codigo de cadastro aqui
        // JOptionPane.showMessageDialog(null,jcCargo.getItemAt(WIDTH));
         evt.getLocationOnScreen();
-        Funcionario F = new Funcionario(tfNome.getText(),
+        control.Control.addFuncionario(tfNome.getText(),
             tfEndereco.getText(),
             jcCargo.getSelectedItem().toString(),
             Float.parseFloat(tfSalario.getText()),
@@ -330,8 +330,7 @@ public class TCadastro extends javax.swing.JFrame {
             (float) Double.parseDouble(tfInss.getText()),
             tfUsuario.getText(),
             tfSenha.getText());
-        FuncionarioDAO dao = new FuncionarioDAO();
-        dao.create(F);
+
         limpar();
     }//GEN-LAST:event_jPanel2MouseClicked
 

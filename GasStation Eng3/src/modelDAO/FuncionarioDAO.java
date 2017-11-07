@@ -5,7 +5,6 @@
  */
 package modelDAO;
 
-import model.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,67 +21,129 @@ import model.Produto;
  *
  * @author jo
  */
-public class FuncionarioDAO {
-    
-      public void create (Funcionario f){
-        Connection con = Conexao.getConnection();
-        PreparedStatement stmt =null;
+public class FuncionarioDAO extends Conexao{
+
+    private static FuncionarioDAO instance;
+    private static Connection myCONN;
+
+    private FuncionarioDAO() {
+    }
+
+    public static FuncionarioDAO getInstance() {
+        if (instance == null) {
+            instance = new FuncionarioDAO();
+            myCONN = instance.getConnection();
+        }
+        return instance;
+    }
+
+    public void create(String nome, String endereco, String cargo, float salario, String rg, String cpf, float inss,
+            String login, String senha) {
         
+        Connection con = Conexao.getConnection();
+        PreparedStatement stmt = null;
+
         try {
             stmt = con.prepareStatement("INSERT INTO Funcionario(nome,endereco,cargo,salario,rg,cpf,inss,login,senha)VALUES(?,?,?,?,?,?,?,?,?) ");
-            stmt.setString(1,f.getNome() );
-            stmt.setString(2,f.getEndereco() );
-            stmt.setString(3,f.getCargo() );
-            stmt.setFloat(4,f.getSalario());
+            stmt.setString(1, nome);
+            stmt.setString(2, endereco);
+            stmt.setString(3, cargo);
+            stmt.setFloat(4, salario);
+            stmt.setString(5, rg);
+            stmt.setString(6, cpf);
+            stmt.setDouble(7, inss);
+            stmt.setString(8, login);
+            stmt.setString(9, senha);
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "salvo com sucesso ");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "erro ao salvar " + ex);
+        } finally {
+            Conexao.closeConnection(con, stmt);
+
+        }
+
+    }
+
+    public List<Funcionario> ListarFunc() {
+        Connection con = Conexao.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Funcionario> lFunc = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("select * from Funcionario");
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+
+                Funcionario funcionario = new Funcionario();
+                funcionario.setCodigoFun(rs.getInt("idFunc"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setEndereco(rs.getString("endereco"));
+                funcionario.setCargo(rs.getString("cargo"));
+                funcionario.setSalario(rs.getInt("salario"));
+                funcionario.setRg(rs.getString("rg"));
+                funcionario.setCpf(rs.getString("cpf"));
+                funcionario.setInss(rs.getInt("inss"));
+                funcionario.setLogin(rs.getString("login"));
+                funcionario.setSenha(rs.getString("senha"));
+                lFunc.add(funcionario);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+
+            Conexao.closeConnection(con, stmt, rs);
+
+        }
+
+        return lFunc;
+    }
+
+    public void updateFuncinario(Funcionario f) {
+        Connection con = Conexao.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE funcionario set nome=?,endereco=?,cargo=?,salario=?,rg=?,cpf=?,inss=?,login=?,senha=? ");
+            stmt.setString(1, f.getNome());
+            stmt.setString(2, f.getEndereco());
+            stmt.setString(3, f.getCargo());
+            stmt.setFloat(4, f.getSalario());
             stmt.setString(5, f.getRg());
             stmt.setString(6, f.getCpf());
             stmt.setDouble(7, f.getInss());
             stmt.setString(8, f.getLogin());
             stmt.setString(9, f.getSenha());
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"salvo com sucesso ");
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso ");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"erro ao salvar "+ex);
-        }finally{
+            JOptionPane.showMessageDialog(null, "erro ao Atualizar " + ex);
+        } finally {
             Conexao.closeConnection(con, stmt);
-        
+
         }
-               
+
     }
-      
-       public List<Funcionario> ListarFunc() {
+
+    public void delete(Funcionario f) {
         Connection con = Conexao.getConnection();
-        PreparedStatement stmt =null;
-        ResultSet rs = null;
-        List <Funcionario> lFunc = new ArrayList<>();
-      
-          try {
-              stmt = con.prepareStatement("select * from Funcionario");
-               rs = stmt.executeQuery();
-               while(rs.next()){
-                   
-                    Funcionario funcionario = new Funcionario();
-                    funcionario.setCodigoFun(rs.getInt("idFunc"));
-                    funcionario.setNome(rs.getString("nome"));
-                    funcionario.setEndereco(rs.getString("endereco"));
-                    funcionario.setCargo(rs.getString("cargo"));
-                    funcionario.setSalario(rs.getInt("salario"));
-                    funcionario.setRg(rs.getString("rg"));
-                    funcionario.setCpf(rs.getString("cpf"));
-                    funcionario.setInss(rs.getInt("inss"));
-                    funcionario.setLogin(rs.getString("login"));
-                    funcionario.setSenha(rs.getString("senha"));
-                    lFunc.add(funcionario);
-               
-               }
-          } catch (SQLException ex) {
-              Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-          }finally{
-       
-            Conexao.closeConnection(con, stmt, rs);
-       
-        }     
-        
-        return lFunc;
-       }
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("DELETE FROM funci WHERE idFunc = ? ");
+
+            //  stmt.setInt(1, p.getCodigo());
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Deletado com sucesso ");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "erro ao deletar " + ex);
+        } finally {
+            Conexao.closeConnection(con, stmt);
+
+        }
+
+    }
+
 }

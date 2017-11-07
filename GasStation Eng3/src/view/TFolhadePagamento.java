@@ -97,10 +97,16 @@ public class TFolhadePagamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+<<<<<<< HEAD
   
         FuncionarioDAO fdao = new FuncionarioDAO();
         for (Funcionario f : fdao.ListarFunc()){
             
+=======
+        // TODO add your handling code here:
+        ;
+        for (Funcionario f : control.Control.listarFuncionarios()){
+>>>>>>> 138adb75ba63b7433f0fe62afd81eec0ea1e3c67
     }//GEN-LAST:event_jButton1ActionPerformed
     }
     
@@ -108,9 +114,9 @@ public class TFolhadePagamento extends javax.swing.JFrame {
         
             DefaultTableModel  model= (DefaultTableModel) jTableFuncionario.getModel();
             model.setNumRows(0);
-            FuncionarioDAO fdao = new FuncionarioDAO();
             
-            for (Funcionario f: fdao.ListarFunc()){
+            
+            for (Funcionario f: control.Control.listarFuncionarios()){
                 model.addRow(new Object[]{
                 f.getRg(),
                 f.getCpf(),

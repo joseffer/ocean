@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package modelDAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author jo
  */
-public class Conexao {
+    public abstract class Conexao {
     
     private  static final String DRIVER = "com.mysql.jdbc.Driver";
     private  static final String URL = "jdbc:mysql://localhost:3306/Posto";
@@ -45,6 +45,24 @@ public static void closeConnection(Connection con){
      }
     
 }
+
+//
+    protected ResultSet getResultSet(PreparedStatement queryStatement) throws SQLException {
+        ResultSet rs;
+        rs = queryStatement.executeQuery();
+        return rs;
+    }
+
+    protected int executeUpdate(PreparedStatement queryStatement) throws SQLException {
+        int update;
+        update = queryStatement.executeUpdate();
+        return update;
+    }
+
+
+
+//
+
 
 public static void closeConnection(Connection con, PreparedStatement stmt){
  
