@@ -97,17 +97,17 @@ public class TFolhadePagamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+/*
   
-        //FuncionarioDAO fdao = new FuncionarioDAO();
+        FuncionarioDAO fdao = new FuncionarioDAO();
         for (Funcionario f : fdao.ListarFunc()){
             
 
         // TODO add your handling code here:
         
-        //for (Funcionario f : control.Control.listarFuncionarios()){
+        for (Funcionario f : control.Control.listarFuncionarios()){
     }//GEN-LAST:event_jButton1ActionPerformed
-    }
+ */   }
     
     public void CarregaTabelaFunc(){
         
