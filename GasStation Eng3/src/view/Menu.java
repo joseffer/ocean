@@ -112,6 +112,9 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 160));
 
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel4MouseEntered(evt);
             }
@@ -427,6 +430,12 @@ public class Menu extends javax.swing.JFrame {
         evt.getLocationOnScreen();
         new Tvenda().setVisible(true);
     }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+           // TODO add your handling code here:
+        evt.getLocationOnScreen();
+        new TFolhadePagamento().setVisible(true);
+    }//GEN-LAST:event_jPanel4MouseClicked
 
     public void setColor(JPanel panel)
  {
