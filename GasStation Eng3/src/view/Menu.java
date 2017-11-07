@@ -434,19 +434,19 @@ public class Menu extends javax.swing.JFrame {
         new Tvenda().setVisible(true);
     }//GEN-LAST:event_jPanel7MouseClicked
 
-<<<<<<< HEAD
+
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
            // TODO add your handling code here:
         evt.getLocationOnScreen();
         new TFolhadePagamento().setVisible(true);
     }//GEN-LAST:event_jPanel4MouseClicked
-=======
+
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
         // TODO add your handling code here:
         evt.getLocationOnScreen();
        new TCombustivel().setVisible(true);
     }//GEN-LAST:event_jPanel5MouseClicked
->>>>>>> 138adb75ba63b7433f0fe62afd81eec0ea1e3c67
+
 
     public void setColor(JPanel panel)
  {
