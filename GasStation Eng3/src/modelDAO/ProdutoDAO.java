@@ -27,7 +27,7 @@ public class ProdutoDAO extends Conexao {
      private static Connection myCONN;
 
 
-    public ProdutoDAO() {
+    private ProdutoDAO() {
     }
     
     public static ProdutoDAO getInstance() {
