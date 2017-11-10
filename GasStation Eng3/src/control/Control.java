@@ -1,9 +1,17 @@
 
 
 package control;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Funcionario;
 import model.Produto;
+import modelDAO.Conexao;
 import modelDAO.FuncionarioDAO;
 import modelDAO.ProdutoDAO;
 
@@ -51,6 +59,34 @@ public class Control {
         return FuncionarioDAO.getInstance().ListarFunc(); 
         
     }
- 
+        public static Produto buildObject(ResultSet rs) {
+        Produto produto = null;
+        try {
+            produto = new Produto(rs.getFloat("valor"));
+        } catch (SQLException e) {
+        }
+        return produto;
+    }
+        
+    public static float getValorProduto(){
+        Connection con = Conexao.getConnection();
+        PreparedStatement stmt =null;
+        ResultSet rs = null;
+        String valor;
+        Produto produto;
+
+        try {
+            stmt = con.prepareStatement("select valor from produto where nome='oleo de motor'");
+            rs = stmt.executeQuery();
+      
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        Conexao.closeConnection(con, stmt, rs); 
+    }
+        produto = buildObject(rs);
+        valor = produto.toString();
+        return Float.parseFloat(valor) ;
+    }
 
 }

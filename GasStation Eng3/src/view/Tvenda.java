@@ -10,6 +10,25 @@ package view;
  * @author kelwi
  */
 public class Tvenda extends javax.swing.JFrame {
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jtItens;
+    private javax.swing.JTextField jtNomeProd;
+    private javax.swing.JTextField jtQtd;
+    private javax.swing.JTextField jtSubtotal;
+    private javax.swing.JTextField jtValorUnitario;
+    // End of variables declaration//GEN-END:variables
 
     /**
      * Creates new form Tvenda
@@ -17,7 +36,11 @@ public class Tvenda extends javax.swing.JFrame {
     public Tvenda() {
         initComponents();
     }
-
+    
+    public int getQuantidade(){
+        return Integer.parseInt(this.jtQtd.getText());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,20 +53,20 @@ public class Tvenda extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtNomeProd = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jtQtd = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jtValorUnitario = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jtItens = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jtSubtotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,6 +75,11 @@ public class Tvenda extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(232, 81, 74));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,14 +101,14 @@ public class Tvenda extends javax.swing.JFrame {
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 40, 40));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtNomeProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtNomeProd.setBorder(null);
+        jtNomeProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtNomeProdActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 190, 40));
+        jPanel3.add(jtNomeProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 190, 40));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -93,26 +121,26 @@ public class Tvenda extends javax.swing.JFrame {
         jLabel4.setText("Valor unitario");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 100, -1));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jtQtd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtQtd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jtQtdActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 190, 40));
+        jPanel3.add(jtQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 190, 40));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Quantidade");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, -1));
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jtValorUnitario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jtValorUnitario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jtValorUnitarioActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 100, 60));
+        jPanel3.add(jtValorUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 100, 60));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -128,7 +156,7 @@ public class Tvenda extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 170, 40));
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 80, 50));
+        jPanel3.add(jtItens, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 80, 50));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,24 +167,29 @@ public class Tvenda extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Subtotal");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 140, 50));
+        jPanel3.add(jtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 140, 50));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jtQtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtQtdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jtQtdActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtValorUnitarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jtValorUnitarioActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtNomeProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeProdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtNomeProdActionPerformed
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // TODO add your handling code here:
+       //açao do botao OK
+    }//GEN-LAST:event_jPanel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -193,23 +226,4 @@ public class Tvenda extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    // End of variables declaration//GEN-END:variables
 }

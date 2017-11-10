@@ -42,7 +42,9 @@ public class Produto {
     this.valor=0;  
     }
     
-
+    public Produto (float valor){
+        setValor(valor);
+    }
     public Produto(  String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
 
         

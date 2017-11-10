@@ -7,7 +7,9 @@ package model;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import view.Tvenda;
+import model.Venda;
+import control.Control;
 /**
  *
  * @author kelwi
@@ -18,7 +20,21 @@ public class VendaTest {
     }
 
     @Test
-    public void testSomeMethod() {
+    public void realizarVenda() {
     }
-    
+      public void verificaItens() {
+          
+    }
+      public void verificaTotal() {
+          //Tvenda venda = new Tvenda();
+         // venda.setVisible(true);
+          //int quantidade = venda.getQuantidade();
+          int quantidade = 2;
+          float valor = Control.getValorProduto();
+          System.out.println("valor:" + valor);
+          double subtotal = quantidade*valor;
+          assertEquals(50, subtotal, 0);
+    }
+      public void verificaSubtotal() {
+    }
 }
