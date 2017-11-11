@@ -118,6 +118,20 @@ public class ProdutoDAO extends Conexao {
         
         }
         }
+        public void updateEstoque(float qntArmazenada){
+            Connection con = Conexao.getConnection();
+            PreparedStatement stmt =null;
+           try {
+            stmt = con.prepareStatement("UPDATE produto SET qtdArmazenada=qtdArmazenada-? WHERE nome = ? ");
+            stmt.setFloat(1,qntArmazenada);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"erro ao atualizar estoque "+ex);
+        }finally{
+            Conexao.closeConnection(con, stmt);
+        
+        }
+        }
         public void delete (int codigo){
         Connection con = Conexao.getConnection();
         PreparedStatement stmt =null;

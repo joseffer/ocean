@@ -38,6 +38,9 @@ public class Control {
     public static void  updateProduto(int codigo, String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
         ProdutoDAO.getInstance().update(codigo, nome, valor, descricao, dataCompra, dataValidade, fornecedor, qntArmazenada);
     }
+    public static void  updateEstoque(float qntArmazenada){
+        ProdutoDAO.getInstance().updateEstoque(qntArmazenada);
+    }
     
     public static void excluirProduto (int cod){
         ProdutoDAO.getInstance().delete(cod);
@@ -46,7 +49,16 @@ public class Control {
     public static List<Produto> listarProdutos() {
         return ProdutoDAO.getInstance().listar();   
     }
-
+    
+    public static float buscaProduto(String nomeProd){
+        for (Produto p : listarProdutos()){
+            if(p.getNome().equals(nomeProd)){
+                return p.getValor();
+            }
+        }
+        return 0;
+    }
+    
     public static void addFuncionario (String nome, String endereco, String cargo, float salario, String rg, String cpf, float inss,
             String login, String senha) {
         FuncionarioDAO.getInstance().create(nome, endereco, cargo, salario, rg, cpf, inss, login, senha);

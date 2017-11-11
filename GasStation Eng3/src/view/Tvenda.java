@@ -5,11 +5,17 @@
  */
 package view;
 
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Venda;
+
 /**
  *
  * @author kelwi
  */
 public class Tvenda extends javax.swing.JFrame {
+    float subtotal;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -17,12 +23,17 @@ public class Tvenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jllFinalizar;
+    private javax.swing.JLabel jllFinalizar1;
+    private javax.swing.JLabel jllOk;
     private javax.swing.JTextField jtItens;
     private javax.swing.JTextField jtNomeProd;
     private javax.swing.JTextField jtQtd;
@@ -52,7 +63,7 @@ public class Tvenda extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jllOk = new javax.swing.JLabel();
         jtNomeProd = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -62,11 +73,16 @@ public class Tvenda extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jllFinalizar = new javax.swing.JLabel();
+        jllFinalizar1 = new javax.swing.JLabel();
         jtItens = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jtSubtotal = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,35 +95,44 @@ public class Tvenda extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel4MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel4MouseExited(evt);
+            }
         });
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("OK");
+        jllOk.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jllOk.setForeground(new java.awt.Color(255, 255, 255));
+        jllOk.setText("OK");
+        jllOk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jllOkMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jllOk)
+                .addGap(25, 25, 25))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jllOk, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 40, 40));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 60, 40));
 
         jtNomeProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jtNomeProd.setBorder(null);
-        jtNomeProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNomeProdActionPerformed(evt);
-            }
-        });
+        jtNomeProd.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.add(jtNomeProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 190, 40));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -119,14 +144,10 @@ public class Tvenda extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Valor unitario");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 100, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 110, -1));
 
         jtQtd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jtQtd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtQtdActionPerformed(evt);
-            }
-        });
+        jtQtd.setText("0");
         jPanel3.add(jtQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 190, 40));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -134,63 +155,187 @@ public class Tvenda extends javax.swing.JFrame {
         jLabel5.setText("Quantidade");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, -1));
 
+        jtValorUnitario.setEditable(false);
         jtValorUnitario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jtValorUnitario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtValorUnitarioActionPerformed(evt);
             }
         });
-        jPanel3.add(jtValorUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 100, 60));
+        jPanel3.add(jtValorUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 100, 50));
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 370, 260));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 370, 240));
 
         jPanel2.setBackground(new java.awt.Color(232, 81, 74));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel2MouseExited(evt);
+            }
+        });
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Finalizar venda");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
+        jllFinalizar.setForeground(new java.awt.Color(255, 255, 255));
+        jllFinalizar.setText("Finalizar venda");
+        jPanel2.add(jllFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
+
+        jllFinalizar1.setForeground(new java.awt.Color(255, 255, 255));
+        jllFinalizar1.setText("Finalizar venda");
+        jPanel2.add(jllFinalizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 170, 40));
-        jPanel3.add(jtItens, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 80, 50));
+
+        jtItens.setEditable(false);
+        jtItens.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jtItens.setText("0");
+        jPanel3.add(jtItens, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 70, 50));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Itens");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Subtotal");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
-        jPanel3.add(jtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 140, 50));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 70, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 330));
+        jtSubtotal.setEditable(false);
+        jtSubtotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jtSubtotal.setText("0.00");
+        jtSubtotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtSubtotalActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 130, 50));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("R$");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 40, 60));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("R$");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 40, 50));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Item     Nome     Quantidade     R$");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 370, 20));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtQtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtQtdActionPerformed
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtQtdActionPerformed
+       //açao do botao OK
+       evt.getClass();
+       int itens = Integer.parseInt(jtItens.getText());
+       subtotal = Float.parseFloat(jtSubtotal.getText());
+       int qtd = Integer.parseInt(jtQtd.getText());
+       String textField;
+       
+       float valor = control.Control.buscaProduto(jtNomeProd.getText());
+       if ((valor > 0) && (qtd > 0)) {
+           jtValorUnitario.setText(Float.toString(valor));
+           
+           itens++;
+           jtItens.setText(Integer.toString(itens));
+           
+           subtotal += valor*qtd;
+           jtSubtotal.setText(Float.toString(subtotal));
+           
+           textField = jTextArea1.getText() + jtItens.getText() + "          " + jtNomeProd.getText()+ "          " + jtQtd.getText()+ "                " + valor*qtd + "\n";
+           jTextArea1.setText(textField);
+           
+           //control.Control.updateEstoque((float)qtd);
+       }
+       else JOptionPane.showMessageDialog(null,"Produto não encontrado ou quantidade não informada");
+    }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtValorUnitarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtValorUnitarioActionPerformed
 
-    private void jtNomeProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeProdActionPerformed
+    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtNomeProdActionPerformed
+        evt.getLocationOnScreen();
+        setColor(jPanel4);
+    }//GEN-LAST:event_jPanel4MouseEntered
 
-    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
         // TODO add your handling code here:
-       //açao do botao OK
-    }//GEN-LAST:event_jPanel4MouseClicked
+        evt.getLocationOnScreen();
+        resetColor(jPanel4);
+    }//GEN-LAST:event_jPanel4MouseExited
 
+    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+        // TODO add your handling code here:
+        evt.getLocationOnScreen();
+        setColor(jPanel2);
+    }//GEN-LAST:event_jPanel2MouseEntered
+
+    private void jPanel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseExited
+        // TODO add your handling code here:
+         evt.getLocationOnScreen();
+        resetColor(jPanel2);
+    }//GEN-LAST:event_jPanel2MouseExited
+
+    private void jllOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jllOkMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jllOkMouseClicked
+
+    private void jtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtSubtotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtSubtotalActionPerformed
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        // TODO add your handling code here:
+        evt.getClass();
+        Date data = new Date(System.currentTimeMillis());
+        Venda venda = new Venda(data,(double)subtotal);
+        JOptionPane.showMessageDialog(null,"TOTAL A PAGAR: R$" + subtotal);
+    }//GEN-LAST:event_jPanel2MouseClicked
+    public void setColor(JPanel panel)
+    {
+     panel.setBackground(new java.awt.Color(239, 24, 14));
+    }
+    public void resetColor(JPanel panel)
+    {
+     panel.setBackground(new java.awt.Color(232,81,74));
+    }
     /**
      * @param args the command line arguments
      */
