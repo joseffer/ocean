@@ -28,18 +28,23 @@ create table Funcionario(
     unique(IDFunc)
     );
     
-create table Venda(
-	idVenda int NOT NULL AUTO_INCREMENT,
-    quantidade int,
-    itens int,
-    subtotal float,
-	/*  data date, */
-    idProd int,
-    primary key (idVenda),
-    foreign key (idProd) references Produto(idProd)
-);
+    create table Vendas(
+    idVenda int NOT NULL AUTO_INCREMENT,
+    itensVenda varchar(500),
+    dataVenda varchar(30),
+    valor float,
+    unique(idVenda)
+    );
+    
+    create table VendaCombustivel(
+    idVendaComb int NOT NULL AUTO_INCREMENT,
+    idCombustivel int,
+    qtdLitros float,
+    valorTotal float,
+    unique( idVendaComb)
+    );
     
     
-    drop table Funcionario
-    drop table produto
+
 select * from produto
+select * from Funcionario
