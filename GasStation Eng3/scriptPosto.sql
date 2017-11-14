@@ -46,5 +46,5 @@ create table Funcionario(
     
     
 
-select * from produto
+select * from Vendas
 select * from Funcionario

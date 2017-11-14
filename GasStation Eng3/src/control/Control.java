@@ -6,14 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Funcionario;
 import model.Produto;
+import model.Venda;
 import modelDAO.Conexao;
 import modelDAO.FuncionarioDAO;
 import modelDAO.ProdutoDAO;
+import modelDAO.VendaDAO;
 
 public class Control {
 
@@ -38,8 +41,8 @@ public class Control {
     public static void  updateProduto(int codigo, String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
         ProdutoDAO.getInstance().update(codigo, nome, valor, descricao, dataCompra, dataValidade, fornecedor, qntArmazenada);
     }
-    public static void  updateEstoque(float qntArmazenada){
-        ProdutoDAO.getInstance().updateEstoque(qntArmazenada);
+    public static void  updateEstoque(float qntArmazenada,String nome){
+        ProdutoDAO.getInstance().updateEstoque(qntArmazenada,nome);
     }
     
     public static void excluirProduto (int cod){
@@ -50,13 +53,13 @@ public class Control {
         return ProdutoDAO.getInstance().listar();   
     }
     
-    public static float buscaProduto(String nomeProd){
+    public static Produto buscaProduto(String nomeProd){
         for (Produto p : listarProdutos()){
             if(p.getNome().equals(nomeProd)){
-                return p.getValor();
+                return p;
             }
         }
-        return 0;
+        return null;
     }
     
     public static void addFuncionario (String nome, String endereco, String cargo, float salario, String rg, String cpf, float inss,
@@ -78,6 +81,11 @@ public class Control {
         } catch (SQLException e) {
         }
         return produto;
+    }
+    public static void addVenda(String produtos, float total){
+        Date data = new Date(System.currentTimeMillis());
+        String dataAtual = data.toString();
+       VendaDAO.getInstance().createVenda(produtos, dataAtual, total);
     }
         
     public static float getValorProduto(){

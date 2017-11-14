@@ -118,12 +118,13 @@ public class ProdutoDAO extends Conexao {
         
         }
         }
-        public void updateEstoque(float qntArmazenada){
+        public void updateEstoque(float qntArmazenada, String nome){
             Connection con = Conexao.getConnection();
             PreparedStatement stmt =null;
            try {
             stmt = con.prepareStatement("UPDATE produto SET qtdArmazenada=qtdArmazenada-? WHERE nome = ? ");
             stmt.setFloat(1,qntArmazenada);
+            stmt.setString(2, nome);
             stmt.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"erro ao atualizar estoque "+ex);

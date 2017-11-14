@@ -5,12 +5,13 @@ import java.util.Date;
 
 public class Venda {
     
-    ArrayList<Produto> ProdVendido = new ArrayList<>();
+    ArrayList<Produto> prodVendido = new ArrayList<>();
  
     private Date dataVenda;
     private double total;
 
-    public Venda(Date dataVenda, double total) {
+    public Venda(ArrayList<Produto> prodVendido, Date dataVenda, double total) {
+        this.prodVendido= this.prodVendido;
         this.dataVenda = dataVenda;
         this.total = total;
     }
