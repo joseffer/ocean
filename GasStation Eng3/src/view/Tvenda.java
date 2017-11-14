@@ -5,9 +5,12 @@
  */
 package view;
 
+import control.Control;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.Produto;
 import model.Venda;
 
 /**
@@ -15,7 +18,6 @@ import model.Venda;
  * @author kelwi
  */
 public class Tvenda extends javax.swing.JFrame {
-    float subtotal;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -263,12 +265,13 @@ public class Tvenda extends javax.swing.JFrame {
        //açao do botao OK
        evt.getClass();
        int itens = Integer.parseInt(jtItens.getText());
-       subtotal = Float.parseFloat(jtSubtotal.getText());
+       float subtotal = Float.parseFloat(jtSubtotal.getText());
        int qtd = Integer.parseInt(jtQtd.getText());
        String textField;
        
-       float valor = control.Control.buscaProduto(jtNomeProd.getText());
-       if ((valor > 0) && (qtd > 0)) {
+        Produto p = control.Control.buscaProduto(jtNomeProd.getText());
+        float valor = p.getValor();
+        if ((valor > 0) && (qtd > 0)) {
            jtValorUnitario.setText(Float.toString(valor));
            
            itens++;
@@ -277,10 +280,10 @@ public class Tvenda extends javax.swing.JFrame {
            subtotal += valor*qtd;
            jtSubtotal.setText(Float.toString(subtotal));
            
-           textField = jTextArea1.getText() + jtItens.getText() + "          " + jtNomeProd.getText()+ "          " + jtQtd.getText()+ "                " + valor*qtd + "\n";
+           textField = jTextArea1.getText() + jtItens.getText() + "         " + jtNomeProd.getText()+ "             " + jtQtd.getText()+ "                  " + valor*qtd + "\n";
            jTextArea1.setText(textField);
            
-           //control.Control.updateEstoque((float)qtd);
+           control.Control.updateEstoque((float)qtd,jtNomeProd.getText());
        }
        else JOptionPane.showMessageDialog(null,"Produto não encontrado ou quantidade não informada");
     }//GEN-LAST:event_jPanel4MouseClicked
@@ -324,9 +327,10 @@ public class Tvenda extends javax.swing.JFrame {
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
         evt.getClass();
-        Date data = new Date(System.currentTimeMillis());
-        Venda venda = new Venda(data,(double)subtotal);
-        JOptionPane.showMessageDialog(null,"TOTAL A PAGAR: R$" + subtotal);
+        String produtos = jTextArea1.getText();
+        float total = Float.parseFloat(jtSubtotal.getText());
+        Control.addVenda(produtos,total);
+        JOptionPane.showMessageDialog(null,"TOTAL A PAGAR: R$" + jtSubtotal.getText());
     }//GEN-LAST:event_jPanel2MouseClicked
     public void setColor(JPanel panel)
     {
@@ -365,6 +369,7 @@ public class Tvenda extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Tvenda().setVisible(true);
             }
