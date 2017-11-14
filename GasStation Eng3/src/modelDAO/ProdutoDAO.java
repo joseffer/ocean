@@ -38,12 +38,12 @@ public class ProdutoDAO extends Conexao {
         return instance;
     
     }
-    public void create ( String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
+    public void create ( String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada,int maximo){
         Connection con = Conexao.getConnection();
         PreparedStatement stmt =null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO Produto(nome,descricao,fornecedor,qtdArmazenada,valor,compra,validade)VALUES(?,?,?,?,?,?,?) ");
+            stmt = con.prepareStatement("INSERT INTO Produto(nome,descricao,fornecedor,qtdArmazenada,valor,compra,validade,maximo)VALUES(?,?,?,?,?,?,?,?) ");
             stmt.setString(1,nome );
             stmt.setString(2,descricao );
             stmt.setString(3,fornecedor );
@@ -51,6 +51,7 @@ public class ProdutoDAO extends Conexao {
             stmt.setFloat(5, valor);
             stmt.setString(6, dataCompra);
             stmt.setString(7, dataValidade);
+            stmt.setInt(8, maximo);
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"salvo com sucesso ");
         } catch (SQLException ex) {
@@ -80,6 +81,7 @@ public class ProdutoDAO extends Conexao {
                 produto.setValor(rs.getFloat("valor"));
                 produto.setDataCompra(rs.getString("compra"));
                 produto.setDataValidade(rs.getString("validade"));
+                produto.setMaximo(rs.getInt("maximo"));
                 lprod.add(produto);
                 
             }

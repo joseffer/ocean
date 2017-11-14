@@ -21,23 +21,30 @@ import javax.swing.JPanel;
  *
  * @author ASUS
  */
-public class CustomPanel extends JPanel{
+public class CustomPanelGasolina extends JPanel{
     int progress = 0;
     TCombustivel combustivel;
+    
+    
     public void UpdateProgress(int progressValue){
         progress = progressValue;
+        
+        
     }
     @Override
     public void paint(Graphics g){
+     
+        
+        
         super.paint(g);
         Graphics2D g2 = (Graphics2D)g;
         //g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_OFF); erro ao compilar
         g2.translate(this.getWidth()/2, this.getHeight()/2);
         g2.rotate(Math.toRadians(270));
         Arc2D.Float arc =  new Arc2D.Float(Arc2D.PIE);
-        Ellipse2D circle = new Ellipse2D.Float(0,0,110,110);
-        arc.setFrameFromCenter(new Point(0,0), new Point(120,120));
-        circle.setFrameFromCenter(new Point(0,0), new Point(110,110));
+        Ellipse2D circle = new Ellipse2D.Float(0,0,60,60);
+        arc.setFrameFromCenter(new Point(0,0), new Point(70,70));
+        circle.setFrameFromCenter(new Point(0,0), new Point(60,60));
         arc.setAngleStart(1);
         arc.setAngleExtent(-progress*3.6); //isso é utilizado por causa da circunferencia, 360/100
         g2.setColor(new Color(232,81,74));

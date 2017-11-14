@@ -34,8 +34,8 @@ public class Control {
         
     
 
-    public static void addProduto ( String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada) {
-        ProdutoDAO.getInstance().create(nome, valor, descricao, dataCompra, dataValidade, fornecedor, qntArmazenada);
+    public static void addProduto ( String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada, int maximo) {
+        ProdutoDAO.getInstance().create(nome, valor, descricao, dataCompra, dataValidade, fornecedor, qntArmazenada,maximo);
     }
     
     public static void  updateProduto(int codigo, String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){

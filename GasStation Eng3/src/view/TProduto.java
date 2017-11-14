@@ -254,7 +254,9 @@ public class TProduto extends javax.swing.JFrame {
                 dcCompra.getText(),
                 dcValidade.getText(),
                 tfFornecedor.getText(),
-                Float.parseFloat(tfQtd.getText()));            
+                Float.parseFloat(tfQtd.getText()),
+                0); 
+                
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

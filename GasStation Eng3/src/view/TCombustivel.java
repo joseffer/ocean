@@ -7,6 +7,8 @@ package view;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import control.Control;
+import model.Produto;
 
 /**
  *
@@ -33,14 +35,25 @@ public class TCombustivel extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        progressPanel = new view.CustomPanel();
-        jButton1 = new javax.swing.JButton();
+        progressPanel = new view.CustomPanelGasolina();
+        jLabel5 = new javax.swing.JLabel();
+        customPanelAditivada1 = new view.CustomPanelAditivada();
+        customPanelDiesel1 = new view.CustomPanelDiesel();
+        customPanelEtanol1 = new view.CustomPanelEtanol();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        tipoCombustivel = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
@@ -49,93 +62,193 @@ public class TCombustivel extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Total");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel3.setText("Litros");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 90, 30));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 70, 30));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 90, 40));
+        jLabel3.setText("Combustível");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, -1, -1));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 70, 30));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 90, 40));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel4.setText("ID Combustível");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+        jLabel4.setText("Etanol");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
 
         javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
         progressPanel.setLayout(progressPanelLayout);
         progressPanelLayout.setHorizontalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGap(0, 180, Short.MAX_VALUE)
         );
         progressPanelLayout.setVerticalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGap(0, 150, Short.MAX_VALUE)
         );
 
-        jPanel1.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 290));
+        jPanel1.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 180, 150));
 
-        jButton1.setText("jButton1");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setText("Gasolina Aditivada");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 390));
+        javax.swing.GroupLayout customPanelAditivada1Layout = new javax.swing.GroupLayout(customPanelAditivada1);
+        customPanelAditivada1.setLayout(customPanelAditivada1Layout);
+        customPanelAditivada1Layout.setHorizontalGroup(
+            customPanelAditivada1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 180, Short.MAX_VALUE)
+        );
+        customPanelAditivada1Layout.setVerticalGroup(
+            customPanelAditivada1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(customPanelAditivada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+
+        javax.swing.GroupLayout customPanelDiesel1Layout = new javax.swing.GroupLayout(customPanelDiesel1);
+        customPanelDiesel1.setLayout(customPanelDiesel1Layout);
+        customPanelDiesel1Layout.setHorizontalGroup(
+            customPanelDiesel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 180, Short.MAX_VALUE)
+        );
+        customPanelDiesel1Layout.setVerticalGroup(
+            customPanelDiesel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(customPanelDiesel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+
+        javax.swing.GroupLayout customPanelEtanol1Layout = new javax.swing.GroupLayout(customPanelEtanol1);
+        customPanelEtanol1.setLayout(customPanelEtanol1Layout);
+        customPanelEtanol1Layout.setHorizontalGroup(
+            customPanelEtanol1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 180, Short.MAX_VALUE)
+        );
+        customPanelEtanol1Layout.setVerticalGroup(
+            customPanelEtanol1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(customPanelEtanol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setText("Gasolina");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setText("Diesel");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+
+        tipoCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina Comum", "Gasolina Aditivada", "Etanol", "Diesel" }));
+        jPanel1.add(tipoCombustivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 140, 30));
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setText("Litros");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       new Thread(new Runnable() {
+        encherProgressoGasolina();
+        encherProgressoDiesel();
+        encherProgressoGasolinaAditivada();
+        encherProgressoEtanol();
+    }//GEN-LAST:event_formWindowOpened
+    
+    //Verificar método
+    private void encherProgressoGasolina(){
+        Produto gasolina;
+        gasolina = Control.buscaProduto("Gasolina Comum");
+        float maximo = gasolina.getMaximo();
+        float armazenado = gasolina.getQntArmazenada();
+        float totalTanque= (armazenado/maximo)*100;
+        new Thread(new Runnable() {
             @Override
             public void run() {
-for (int num = 1; num <= 100; num++) {
+for (int num = 1; num <= totalTanque; num++) {
             
                try {
                    progressPanel.UpdateProgress(num);
                    progressPanel.repaint();
-                   Thread.sleep(50);
+                   Thread.sleep(5);
                } catch (InterruptedException ex) {
                    Logger.getLogger(TCombustivel.class.getName()).log(Level.SEVERE, null, ex);
                }
         }            }
         }) .start();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        encherProgresso();
-    }//GEN-LAST:event_jButton1MouseClicked
+        
+    }
     
-    private void encherProgresso(){
+    private void encherProgressoGasolinaAditivada(){
+        Produto gasolinaAditivada;
+        gasolinaAditivada = Control.buscaProduto("Gasolina Aditivada");
+        float maximo = gasolinaAditivada.getMaximo();
+        float armazenado = gasolinaAditivada.getQntArmazenada();
+        float totalTanque= (armazenado/maximo)*100;
         new Thread(new Runnable() {
             @Override
             public void run() {
-for (int num = 1; num <= 100; num++) {
+for (int num = 1; num <= totalTanque; num++) {
             
                try {
-                   progressPanel.UpdateProgress(num);
-                   progressPanel.repaint();
-                   Thread.sleep(50);
+                   customPanelAditivada1.UpdateProgress(num);
+                   customPanelAditivada1.repaint();
+                   Thread.sleep(5);
+               } catch (InterruptedException ex) {
+                   Logger.getLogger(TCombustivel.class.getName()).log(Level.SEVERE, null, ex);
+               }
+        }            }
+        }) .start();
+        
+    }
+    
+    private void encherProgressoEtanol(){
+        Produto etanol;
+        etanol = Control.buscaProduto("Etanol");
+        float maximo = etanol.getMaximo();
+        float armazenado = etanol.getQntArmazenada();
+        float totalTanque= (armazenado/maximo)*100;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+for (int num = 1; num <= totalTanque; num++) {
+            
+               try {
+                   customPanelEtanol1.UpdateProgress(num);
+                   customPanelEtanol1.repaint();
+                   Thread.sleep(5);
+               } catch (InterruptedException ex) {
+                   Logger.getLogger(TCombustivel.class.getName()).log(Level.SEVERE, null, ex);
+               }
+        }            }
+        }) .start();
+        
+    }
+    
+    private void encherProgressoDiesel(){
+        Produto diesel;
+        diesel = Control.buscaProduto("Diesel");
+        float maximo = diesel.getMaximo();
+        float armazenado = diesel.getQntArmazenada();
+        float totalTanque= (armazenado/maximo)*100;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+for (int num = 1; num <= totalTanque; num++) {
+            
+               try {
+                   customPanelDiesel1.UpdateProgress(num);
+                   customPanelDiesel1.repaint();
+                   Thread.sleep(5);
                } catch (InterruptedException ex) {
                    Logger.getLogger(TCombustivel.class.getName()).log(Level.SEVERE, null, ex);
                }
@@ -175,7 +288,7 @@ for (int num = 1; num <= 100; num++) {
             public void run() {
                TCombustivel tc = new TCombustivel();
                tc.setVisible(true);
-               tc.encherProgresso();
+               tc.encherProgressoGasolina();
             }
         });
         
@@ -183,14 +296,20 @@ for (int num = 1; num <= 100; num++) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private view.CustomPanelAditivada customPanelAditivada1;
+    private view.CustomPanelDiesel customPanelDiesel1;
+    private view.CustomPanelEtanol customPanelEtanol1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private view.CustomPanel progressPanel;
+    private view.CustomPanelGasolina progressPanel;
+    private javax.swing.JComboBox<String> tipoCombustivel;
     // End of variables declaration//GEN-END:variables
 }

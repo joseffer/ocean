@@ -3,6 +3,20 @@ package model;
 
 
 public class Produto {
+
+    /**
+     * @return the maximo
+     */
+    public int getMaximo() {
+        return maximo;
+    }
+
+    /**
+     * @param maximo the maximo to set
+     */
+    public void setMaximo(int maximo) {
+        this.maximo = maximo;
+    }
     
     private String nome;
     private int codigo;
@@ -14,6 +28,7 @@ public class Produto {
 
     private String fornecedor;
     private float qntArmazenada;
+    private int maximo;
 
     /**
      * @return the dataValidade
