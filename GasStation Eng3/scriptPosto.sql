@@ -1,4 +1,4 @@
-   create database Posto
+create database Posto
 use posto
 
 create table Produto(
@@ -7,12 +7,18 @@ create table Produto(
 	descricao varchar(200),
 	fornecedor varchar(100),
 	qtdArmazenada float,
-    valor float,
+    valor decimal(10,2),
 	compra varchar(10),
-    validade varchar(10),
+    validade varchar (10),
+    maximo int,
 	unique(IDProd)
+    
 );
 
+insert into Produto(nome,descricao,fornecedor,qtdArmazenada,valor,compra,validade,maximo) values ('Gasolina Comum','Gasolina tipo 1','Petrobras','900',2.99,'14/11/2017','14/11/2020','1000');
+insert into Produto(nome,descricao,fornecedor,qtdArmazenada,valor,compra,validade,maximo) values ('Gasolina Aditivada','Gasolina tipo 2','Petrobras','850',3.19,'14/11/2017','14/11/2020','1000'),('Etanol','Alcool','Petrobras','900',1.89,'14/11/2017','14/11/2020','1000'),('Diesel','Combustivel caminhão','Petrobras','900',2.89,'14/11/2017','14/11/2020','1000');
+insert into Produto values ('Etanol','Alcool','Petrobras','900','1,89','14/11/2017','14/11/2020','1000');
+insert into Produto values ('Diesel','Combustivel caminhão','Petrobras','900','2,89','14/11/2017','14/11/2020','1000');
 create table Funcionario(
 	idFunc int NOT NULL AUTO_INCREMENT,
 	nome varchar(100),
@@ -28,14 +34,6 @@ create table Funcionario(
     unique(IDFunc)
     );
     
-    create table Vendas(
-    idVenda int NOT NULL AUTO_INCREMENT,
-    itensVenda varchar(500),
-    dataVenda varchar(30),
-    valor float,
-    unique(idVenda)
-    );
-    
     create table VendaCombustivel(
     idVendaComb int NOT NULL AUTO_INCREMENT,
     idCombustivel int,
@@ -44,7 +42,6 @@ create table Funcionario(
     unique( idVendaComb)
     );
     
-    
+select * from Produto
 
-select * from Vendas
-select * from Funcionario
+drop table Produto
