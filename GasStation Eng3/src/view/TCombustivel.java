@@ -35,8 +35,8 @@ public class TCombustivel extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jtLitros = new javax.swing.JTextField();
+        jtTotal = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         progressPanel = new view.CustomPanelGasolina();
         jLabel5 = new javax.swing.JLabel();
@@ -47,6 +47,10 @@ public class TCombustivel extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         tipoCombustivel = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        botaoCalcula = new javax.swing.JButton();
+        botaoVenda = new javax.swing.JButton();
+        jtValor = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -62,14 +66,14 @@ public class TCombustivel extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Total");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Combustível");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, -1, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 70, 30));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 90, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+        jPanel1.add(jtLitros, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 70, 30));
+        jPanel1.add(jtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 90, 40));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
@@ -143,13 +147,35 @@ public class TCombustivel extends javax.swing.JFrame {
         jLabel8.setText("Diesel");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
-        tipoCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina Comum", "Gasolina Aditivada", "Etanol", "Diesel" }));
-        jPanel1.add(tipoCombustivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 140, 30));
+        tipoCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione o Item>", "Gasolina Comum", "Gasolina Aditivada", "Etanol", "Diesel" }));
+        tipoCombustivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoCombustivelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tipoCombustivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setText("Litros");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, -1, -1));
+        jLabel6.setText("Valor");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
+
+        botaoCalcula.setText("Calcular");
+        botaoCalcula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoCalculaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(botaoCalcula, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, -1, -1));
+
+        botaoVenda.setText("Finalizar");
+        jPanel1.add(botaoVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
+        jPanel1.add(jtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 80, 30));
+
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setText("Litros");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 480));
 
@@ -163,6 +189,43 @@ public class TCombustivel extends javax.swing.JFrame {
         encherProgressoGasolinaAditivada();
         encherProgressoEtanol();
     }//GEN-LAST:event_formWindowOpened
+
+    private void tipoCombustivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoCombustivelActionPerformed
+        // TODO add your handling code here:
+        mostrarPreço();
+    }//GEN-LAST:event_tipoCombustivelActionPerformed
+
+    private void botaoCalculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCalculaMouseClicked
+        // TODO add your handling code here:
+        float valor = Float.parseFloat(jtValor.getText());
+        float litros = Float.parseFloat(jtLitros.getText());
+        float total = valor *litros;
+        
+        jtTotal.setText(Float.toString(total));
+    }//GEN-LAST:event_botaoCalculaMouseClicked
+    
+    private void mostrarPreço(){
+      if(tipoCombustivel.getSelectedItem().equals("Etanol")){
+          Produto combustivel=Control.buscaProduto("Etanol");
+          float valor = combustivel.getValor();
+          jtValor.setText(Float.toString(valor));
+      }else if(tipoCombustivel.getSelectedItem().equals("Diesel")){
+          Produto combustivel=Control.buscaProduto("Diesel");
+          float valor = combustivel.getValor();
+          jtValor.setText(Float.toString(valor));
+     }else if (tipoCombustivel.getSelectedItem().equals("Gasolina Comum")){
+          Produto combustivel=Control.buscaProduto("Gasolina Comum");
+          float valor = combustivel.getValor();
+          jtValor.setText(Float.toString(valor));
+     }else if(tipoCombustivel.getSelectedItem().equals("Gasolina Aditivada")){
+          Produto combustivel=Control.buscaProduto("Gasolina Aditivada");
+          float valor = combustivel.getValor();
+          jtValor.setText(Float.toString(valor));
+    }else if (tipoCombustivel.getSelectedItem().equals("<Selecione o Item>")){
+       
+          jtValor.setText("");
+    }
+    }
     
     //Verificar método
     private void encherProgressoGasolina(){
@@ -296,6 +359,8 @@ for (int num = 1; num <= totalTanque; num++) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoCalcula;
+    private javax.swing.JButton botaoVenda;
     private view.CustomPanelAditivada customPanelAditivada1;
     private view.CustomPanelDiesel customPanelDiesel1;
     private view.CustomPanelEtanol customPanelEtanol1;
@@ -306,9 +371,11 @@ for (int num = 1; num <= totalTanque; num++) {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jtLitros;
+    private javax.swing.JTextField jtTotal;
+    private javax.swing.JTextField jtValor;
     private view.CustomPanelGasolina progressPanel;
     private javax.swing.JComboBox<String> tipoCombustivel;
     // End of variables declaration//GEN-END:variables
