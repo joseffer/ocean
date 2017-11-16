@@ -331,6 +331,9 @@ public class TCadastro extends javax.swing.JFrame {
             tfUsuario.getText(),
             tfSenha.getText());
 
+       
+        
+       
         limpar();
     }//GEN-LAST:event_jPanel2MouseClicked
 

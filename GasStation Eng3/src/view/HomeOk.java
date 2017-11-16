@@ -6,6 +6,10 @@
 package view;
 
 import java.awt.Window;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelDAO.FuncionarioDAO;
@@ -17,7 +21,7 @@ import model.Funcionario;
  */
 public class HomeOk extends javax.swing.JFrame {
 
-     // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -31,8 +35,8 @@ public class HomeOk extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    public javax.swing.JTextField tfLogin;
-    public javax.swing.JPasswordField tfSenha;
+    private javax.swing.JTextField tfLogin;
+    private javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -197,12 +201,19 @@ public class HomeOk extends javax.swing.JFrame {
         evt.getClass();
 
         
-         if(control.Control.validarUsauario(tfLogin.getText(), tfSenha.getText())){
-            new Menu().setVisible(true);
-            dispose();
-         }else{
-             JOptionPane.showMessageDialog(null,"Senha Invalida ");
-         }
+        try {
+            if(control.Control.validarUsauario(tfLogin.getText(), tfSenha.getText())){
+                new Menu().setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"Senha Invalida ");
+                
+            }
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(HomeOk.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(HomeOk.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered

@@ -1,6 +1,9 @@
 
 
 package control;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,11 +23,22 @@ import modelDAO.VendaDAO;
 
 public class Control {
 
-    public static boolean validarUsauario (String user,String senha) {
-                       
+    public static boolean validarUsauario (String user,String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+                     
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte messageDigest[] = md.digest(senha.getBytes("UTF-8"));
+            
+            StringBuilder sb = new StringBuilder();
+            
+            for(byte b : messageDigest){
+                sb.append(String.format("%02X", 0xFF & b));
+                
+                
+            }
+            String senhaHex = sb.toString();
         for (Funcionario f : listarFuncionarios()){
                 
-                if((f.getLogin().equals(user)) && (f.getSenha().equals(senha))){
+                if((f.getLogin().equals(user)) && (f.getSenha().equals(senhaHex))){
                     return true;
                 }
                               

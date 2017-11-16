@@ -21,7 +21,7 @@ public class FuncionarioDAOTest {
     @Test
     public void create() {
         //Funcionario func = new Funcionario("Claudio", "Rua jose ragazzo","Gerente", (float) 4.200, "45332543-6", "343.645.436-7", 5343, "root", "1234");
-        modelDAO.FuncionarioDAO.getInstance().create("Claudio", "Rua jose ragazzo","Gerente", (float) 4.200, "45332543-6", "343.645.436-7", 5343, "root", "1234");
+        modelDAO.FuncionarioDAO.getInstance().create("Claudio", "Rua jose ragazzo","Gerente", (float) 4.200, "45332543-6", "343.645.436-7", 5343, "teste123", "teste123");
         
         //dao.create(func);
     }

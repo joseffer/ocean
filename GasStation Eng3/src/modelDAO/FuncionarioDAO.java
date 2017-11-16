@@ -5,6 +5,9 @@
  */
 package modelDAO;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Funcionario;
 import model.Produto;
+import view.HomeOk;
 
 /**
  *
@@ -40,10 +44,23 @@ public class FuncionarioDAO extends Conexao{
     public void create(String nome, String endereco, String cargo, float salario, String rg, String cpf, float inss,
             String login, String senha) {
         
+        
         Connection con = Conexao.getConnection();
         PreparedStatement stmt = null;
 
         try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte messageDigest[] = md.digest(senha.getBytes("UTF-8"));
+            
+            StringBuilder sb = new StringBuilder();
+            
+            for(byte b : messageDigest){
+                sb.append(String.format("%02X", 0xFF & b));
+                
+                
+            }
+            String senhaHex = sb.toString();
+            
             stmt = con.prepareStatement("INSERT INTO Funcionario(nome,endereco,cargo,salario,rg,cpf,inss,login,senha)VALUES(?,?,?,?,?,?,?,?,?) ");
             stmt.setString(1, nome);
             stmt.setString(2, endereco);
@@ -53,11 +70,16 @@ public class FuncionarioDAO extends Conexao{
             stmt.setString(6, cpf);
             stmt.setDouble(7, inss);
             stmt.setString(8, login);
-            stmt.setString(9, senha);
+            //stmt.setString(9, senha); //caso de erro voltar
+            stmt.setString(9, senhaHex);
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "salvo com sucesso ");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "erro ao salvar " + ex);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             Conexao.closeConnection(con, stmt);
 

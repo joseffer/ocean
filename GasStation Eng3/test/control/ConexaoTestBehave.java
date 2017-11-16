@@ -32,7 +32,7 @@ public class ConexaoTestBehave {
         
     }
     
-    @When("When quando digitar $login no campo usuario e senha $senha na tela de login")
+    /*@When("When quando digitar $login no campo usuario e senha $senha na tela de login")
     public void usuarioLogado(){
         
         
@@ -61,5 +61,5 @@ public class ConexaoTestBehave {
         }
     }
         
-    
+    */
 }
