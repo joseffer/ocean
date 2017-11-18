@@ -8,6 +8,7 @@ package view;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import control.Control;
+import javax.swing.JOptionPane;
 import model.Produto;
 
 /**
@@ -169,6 +170,11 @@ public class TCombustivel extends javax.swing.JFrame {
         jPanel1.add(botaoCalcula, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, -1, -1));
 
         botaoVenda.setText("Finalizar");
+        botaoVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVendaActionPerformed(evt);
+            }
+        });
         jPanel1.add(botaoVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
         jPanel1.add(jtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 80, 30));
 
@@ -203,6 +209,25 @@ public class TCombustivel extends javax.swing.JFrame {
         
         jtTotal.setText(Float.toString(total));
     }//GEN-LAST:event_botaoCalculaMouseClicked
+
+    private void botaoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVendaActionPerformed
+        // TODO add your handling code here:
+        evt.getClass();
+        
+        String nomeCombustivel = (String)tipoCombustivel.getSelectedItem();        
+        float litros = Float.parseFloat(jtLitros.getText());
+        float total = Float.parseFloat(jtTotal.getText());
+        
+        control.Control.updateEstoque( litros, (String)tipoCombustivel.getSelectedItem());
+        Control.addVendaCombustivel(nomeCombustivel,litros, total);
+        
+        encherProgressoGasolina();
+        encherProgressoDiesel();
+        encherProgressoGasolinaAditivada();
+        encherProgressoEtanol();   
+        
+        JOptionPane.showMessageDialog(null,"Venda realizada com sucesso");
+    }//GEN-LAST:event_botaoVendaActionPerformed
     
     private void mostrarPreço(){
       if(tipoCombustivel.getSelectedItem().equals("Etanol")){
@@ -351,7 +376,6 @@ for (int num = 1; num <= totalTanque; num++) {
             public void run() {
                TCombustivel tc = new TCombustivel();
                tc.setVisible(true);
-               tc.encherProgressoGasolina();
             }
         });
         

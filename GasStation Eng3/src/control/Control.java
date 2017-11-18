@@ -96,10 +96,16 @@ public class Control {
         }
         return produto;
     }
-    public static void addVenda(String produtos, float total){
+    public static void addVendaProduto(String produtos, float total){
         Date data = new Date(System.currentTimeMillis());
-        String dataAtual = data.toString();
-       VendaDAO.getInstance().createVenda(produtos, dataAtual, total);
+        String dataVenda = data.toString();
+       VendaDAO.getInstance().createVendaProduto(produtos, dataVenda, total);
+    }
+    
+    public static void addVendaCombustivel(String nomeCombustivel,float litros, float total){
+        Date data = new Date(System.currentTimeMillis());
+        String dataVenda = data.toString();
+       VendaDAO.getInstance().createVendaCombustivel(nomeCombustivel,litros,total,dataVenda);
     }
         
     public static float getValorProduto(){

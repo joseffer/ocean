@@ -329,7 +329,7 @@ public class Tvenda extends javax.swing.JFrame {
         evt.getClass();
         String produtos = jTextArea1.getText();
         float total = Float.parseFloat(jtSubtotal.getText());
-        Control.addVenda(produtos,total);
+        Control.addVendaProduto(produtos,total);
         JOptionPane.showMessageDialog(null,"TOTAL A PAGAR: R$" + jtSubtotal.getText());
     }//GEN-LAST:event_jPanel2MouseClicked
     public void setColor(JPanel panel)
