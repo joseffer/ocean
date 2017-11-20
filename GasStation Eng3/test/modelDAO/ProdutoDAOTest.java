@@ -21,11 +21,20 @@ public class ProdutoDAOTest {
     }
 
     @Test
-    public void create() {
-         
-        //Produto prod = new Produto("Oleo de motor", (float) 30.00, "Oleo 15W40", "16/10/2016","16/10/2016" ,"Castrol Brasil", 20);
+    @Ignore
+    public void testCreate() {
         modelDAO.ProdutoDAO.getInstance().create("Oleo de motor", (float) 30.00, "Oleo 15W40", "16/10/2016","16/10/2016" ,"Castrol Brasil", 20,0);
-        
     }
+    
+    //Pegar instancia do getInstance
+    @Test
+    @Ignore
+    public void testListar() {
+        ProdutoDAO dao = modelDAO.ProdutoDAO.getInstance();
+        for (Produto p: dao.listar()){
+            System.out.println("Desc: "+ p.getDescricao());
+        }
+    }
+    
 }
     
