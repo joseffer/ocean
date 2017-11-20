@@ -36,5 +36,10 @@ public class ProdutoDAOTest {
         }
     }
     
+    public void testUpdate(){
+        //ERRO
+        //modelDAO.ProdutoDAO.getInstance().update(1, "Oleo de motor", (float) 30.00, "Oleo 15W40", "16/10/2016","16/10/2016" ,"Castrol Brasil", 20,0);
+    }
+    
 }
     

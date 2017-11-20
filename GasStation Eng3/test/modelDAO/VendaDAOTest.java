@@ -37,19 +37,15 @@ public class VendaDAOTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testGetInstance() {
-        
-    }
 
     @Test
     public void testCreateVendaProduto() {
-        
+        modelDAO.VendaDAO.getInstance().createVendaProduto("Óleo", "17/11/2017", (float) 70.00);
     }
     
     @Test
     public void testCreateVendaCombustivel() {
-        
+        modelDAO.VendaDAO.getInstance().createVendaCombustivel("Gasolina", (float) 32.00, (float) 93.00, "17/11/2017");
     }
     
 }

@@ -95,7 +95,7 @@ public class ProdutoDAO extends Conexao {
     return  lprod;
     }
     
-        public void update ( int codigo,String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
+        public void update (int codigo, String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
         Connection con = Conexao.getConnection();
         PreparedStatement stmt =null;
         
