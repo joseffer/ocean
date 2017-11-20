@@ -48,6 +48,11 @@ public class Funcionario {
         setLogin(login);
         setSenha(senha);
     }
+    
+    public Funcionario(int Cod){
+        setCodigoFun(Cod);
+    }
+    
     public void receberCombustivel() {
     }
 
