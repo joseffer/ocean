@@ -60,7 +60,7 @@ public class Produto {
     public Produto (float valor){
         setValor(valor);
     }
-    public Produto(  String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
+    public Produto(String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
         setNome(nome);
         setValor(valor);
         setDescricao(descricao);
@@ -70,18 +70,6 @@ public class Produto {
         setQntArmazenada(qntArmazenada);
     
     }
-    public Produto(int n, String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
-        setCodigo(n);
-        setNome(nome);
-        setValor(valor);
-        setDescricao(descricao);
-        setDataCompra(dataCompra);
-        setDataValidade(dataValidade);
-        setFornecedor(fornecedor);
-        setQntArmazenada(qntArmazenada);
-    
-    }
-    
 
     public void cadastrarProduto() {
     }

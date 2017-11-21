@@ -23,7 +23,7 @@ public class ProdutoDAOTest {
     @Test
     @Ignore
     public void testCreate() {
-        modelDAO.ProdutoDAO.getInstance().create("Oleo de motor", (float) 30.00, "Oleo 15W40", "16/10/2016","16/10/2016" ,"Castrol Brasil", 20,0);
+        modelDAO.ProdutoDAO.getInstance().create("Oleo de motor", (float) 30.00, "Oleo 15W40", "16/10/2016","16/10/2016" ,"Castrol Brasil", (float) 20.0, 0);
     }
     
     //Pegar instancia do getInstance
@@ -36,9 +36,9 @@ public class ProdutoDAOTest {
         }
     }
     
+    @Test
     public void testUpdate(){
-        //ERRO
-        //modelDAO.ProdutoDAO.getInstance().update(1, "Oleo de motor", (float) 30.00, "Oleo 15W40", "16/10/2016","16/10/2016" ,"Castrol Brasil", 20,0);
+        modelDAO.ProdutoDAO.getInstance().update(1, "Doritos", (float) 30.00, "Oleo 15W40", "16/10/2016","16/10/2016" ,"Castrol Brasil", (float) 0.0);
     }
     
 }
