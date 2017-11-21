@@ -6,6 +6,7 @@
 package view;
 
 import java.sql.Connection;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -62,9 +63,14 @@ public class TFolhadePagamento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "RG", "CPF", "Nome", "Salario", "INSS"
+                "ID", "RG", "CPF", "Nome", "Salario", "INSS"
             }
         ));
+        jTableFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableFuncionarioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableFuncionario);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -107,22 +113,36 @@ public class TFolhadePagamento extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Connection con = Conexao.getConnection();
-        
-        String src = "Funcionario.jasper";
-        
-        JasperPrint jasperPrint = null;
-        try {
-            jasperPrint = JasperFillManager.fillReport(src, null, con);
-        } catch (JRException ex) {
-            System.out.println("Error: "+ex);  
+        if (jTableFuncionario.getSelectedRow() != -1) {
+            
+             //funcionario = (Funcionario)jTableFuncionario.getSelectedRow();
+            String codFunc = (jTableFuncionario.getValueAt(jTableFuncionario.getSelectedRow(),0 ).toString());
+            
+            Connection con = Conexao.getConnection();
+
+            String src = "Funcionario1.jasper";
+
+            JasperPrint jasperPrint = null;
+            try {
+
+                HashMap map = new HashMap();
+                map.put("ID", codFunc);
+                jasperPrint = JasperFillManager.fillReport(src, map, con);
+            } catch (JRException ex) {
+                System.out.println("Error: " + ex);
+            }
+
+            JasperViewer view = new JasperViewer(jasperPrint, false);
+            view.setVisible(true);
+
+        } else {
+            // TODO: Mostrar mensagem que precisa selecionar um func
         }
-        
-        JasperViewer view = new JasperViewer(jasperPrint, false);
-        view.setVisible(true);
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTableFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFuncionarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableFuncionarioMouseClicked
 
     
     public void CarregaTabelaFunc(){
@@ -133,14 +153,15 @@ public class TFolhadePagamento extends javax.swing.JFrame {
             
             for (Funcionario f: control.Control.listarFuncionarios()){
                 model.addRow(new Object[]{
+                f.getCodigoFun(),
                 f.getRg(),
                 f.getCpf(),
                 f.getNome(),
                 f.getSalario(),
                 f.getInss()
-                });
-                
+                });              
             }
+
     
     
     
