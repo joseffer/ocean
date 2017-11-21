@@ -5,9 +5,17 @@
  */
 package view;
 
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import modelDAO.FuncionarioDAO;
 import model.Funcionario;
+import modelDAO.Conexao;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -66,11 +74,12 @@ public class TFolhadePagamento extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,17 +106,24 @@ public class TFolhadePagamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-/*
-  
-        FuncionarioDAO fdao = new FuncionarioDAO();
-        for (Funcionario f : fdao.ListarFunc()){
-            
-
-        // TODO add your handling code here:
         
-        for (Funcionario f : control.Control.listarFuncionarios()){
+        Connection con = Conexao.getConnection();
+        
+        String src = "Funcionario.jasper";
+        
+        JasperPrint jasperPrint = null;
+        try {
+            jasperPrint = JasperFillManager.fillReport(src, null, con);
+        } catch (JRException ex) {
+            System.out.println("Error: "+ex);  
+        }
+        
+        JasperViewer view = new JasperViewer(jasperPrint, false);
+        view.setVisible(true);
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
- */   }
+
     
     public void CarregaTabelaFunc(){
         
