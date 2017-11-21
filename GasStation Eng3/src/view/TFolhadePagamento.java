@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelDAO.FuncionarioDAO;
 import model.Funcionario;
@@ -136,7 +137,7 @@ public class TFolhadePagamento extends javax.swing.JFrame {
             view.setVisible(true);
 
         } else {
-            // TODO: Mostrar mensagem que precisa selecionar um func
+            JOptionPane.showMessageDialog(null,"Selecione um funcionario");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
