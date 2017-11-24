@@ -7,11 +7,8 @@ package view;
 
 import java.sql.Connection;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelDAO.FuncionarioDAO;
 import model.Funcionario;
 import modelDAO.Conexao;
 import net.sf.jasperreports.engine.JRException;
@@ -30,7 +27,7 @@ public class TFolhadePagamento extends javax.swing.JFrame {
      */
     public TFolhadePagamento() {
         initComponents();
-        CarregaTabelaFunc();        
+        carregaTabelaFunc();        
     }
 
     /**
@@ -67,11 +64,6 @@ public class TFolhadePagamento extends javax.swing.JFrame {
                 "ID", "RG", "CPF", "Nome", "Salario", "INSS"
             }
         ));
-        jTableFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableFuncionarioMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTableFuncionario);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -114,7 +106,7 @@ public class TFolhadePagamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        evt.getClass();
         if (jTableFuncionario.getSelectedRow() != -1) {
             
              //funcionario = (Funcionario)jTableFuncionario.getSelectedRow();
@@ -142,12 +134,8 @@ public class TFolhadePagamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTableFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFuncionarioMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableFuncionarioMouseClicked
-
     
-    public void CarregaTabelaFunc(){
+    public void carregaTabelaFunc(){
         
             DefaultTableModel  model= (DefaultTableModel) jTableFuncionario.getModel();
             model.setNumRows(0);

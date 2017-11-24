@@ -5,14 +5,12 @@
  */
 package view;
 
-import com.itextpdf.awt.geom.Rectangle2D;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.RenderingHints;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Ellipse2D;
 import javax.swing.JPanel;
@@ -22,11 +20,11 @@ import javax.swing.JPanel;
  * @author ASUS
  */
 public class CustomPanelGasolina extends JPanel{
-    int progress = 0;
-    TCombustivel combustivel;
+    private int progress = 0;
+    private TCombustivel combustivel;
     
     
-    public void UpdateProgress(int progressValue){
+    public void updateProgress(int progressValue){
         progress = progressValue;
         
         

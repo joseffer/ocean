@@ -67,11 +67,4 @@ public class VendaDAO extends Conexao{
                
     }
     
-    
-    public void ListarVendaCombustivel(){
-    }
-    
-        public void ListarVendaProduto(){
-    }
-    
 }

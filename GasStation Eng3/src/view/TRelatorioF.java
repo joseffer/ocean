@@ -6,13 +6,7 @@
 package view;
 
 import java.sql.Connection;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import modelDAO.FuncionarioDAO;
-import model.Funcionario;
+import javax.swing.JPanel;
 import modelDAO.Conexao;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -43,30 +37,32 @@ public class TRelatorioF extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelRelatComb = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanelRelatVend = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(232, 81, 74));
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelRelatComb.setBackground(new java.awt.Color(232, 81, 74));
+        jPanelRelatComb.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel2MouseClicked(evt);
+                jPanelRelatCombMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel2MouseEntered(evt);
+                jPanelRelatCombMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel2MouseExited(evt);
+                jPanelRelatCombMouseExited(evt);
             }
         });
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelRelatComb.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -76,7 +72,7 @@ public class TRelatorioF extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jPanelRelatComb.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(232, 81, 74));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,63 +93,37 @@ public class TRelatorioF extends javax.swing.JFrame {
         jLabel2.setText("Entrar");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 120, 40));
+        jPanelRelatComb.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 120, 40));
 
-        jPanel4.setBackground(new java.awt.Color(232, 81, 74));
-        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel1.add(jPanelRelatComb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 213, 145));
+
+        jPanelRelatVend.setBackground(new java.awt.Color(232, 81, 74));
+        jPanelRelatVend.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel4MouseClicked(evt);
+                jPanelRelatVendMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel4MouseEntered(evt);
+                jPanelRelatVendMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel4MouseExited(evt);
+                jPanelRelatVendMouseExited(evt);
             }
         });
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelRelatVend.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Relatorio de Vendas");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPanelRelatVend.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(49, 49, 49))
-        );
+        jPanel1.add(jPanelRelatVend, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 210, 145));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 580, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+    private void jPanelRelatCombMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRelatCombMouseClicked
         // TODO add your handling code here:
         evt.getClass();
         
@@ -177,19 +147,19 @@ public class TRelatorioF extends javax.swing.JFrame {
         
 
        
-    }//GEN-LAST:event_jPanel2MouseClicked
+    }//GEN-LAST:event_jPanelRelatCombMouseClicked
 
-    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+    private void jPanelRelatCombMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRelatCombMouseEntered
         // TODO add your handling code here:
         evt.getLocationOnScreen();
-        //setColor(jPanel2);
-    }//GEN-LAST:event_jPanel2MouseEntered
+        setColor(jPanelRelatComb);
+    }//GEN-LAST:event_jPanelRelatCombMouseEntered
 
-    private void jPanel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseExited
+    private void jPanelRelatCombMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRelatCombMouseExited
         // TODO add your handling code here:
         evt.getLocationOnScreen();
-        //resetColor(jPanel2);
-    }//GEN-LAST:event_jPanel2MouseExited
+        resetColor(jPanelRelatComb);
+    }//GEN-LAST:event_jPanelRelatCombMouseExited
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         // TODO add your handling code here:
@@ -210,7 +180,7 @@ public class TRelatorioF extends javax.swing.JFrame {
         //resetColor(jPanel2);
     }//GEN-LAST:event_jPanel3MouseExited
 
-    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+    private void jPanelRelatVendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRelatVendMouseClicked
         // TODO add your handling code here:
         evt.getClass();
         Connection con = Conexao.getConnection();
@@ -231,25 +201,33 @@ public class TRelatorioF extends javax.swing.JFrame {
 
        
        
-    }//GEN-LAST:event_jPanel4MouseClicked
+    }//GEN-LAST:event_jPanelRelatVendMouseClicked
 
-    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
+    private void jPanelRelatVendMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRelatVendMouseEntered
         // TODO add your handling code here:
         evt.getLocationOnScreen();
-        //setColor(jPanel2);
-    }//GEN-LAST:event_jPanel4MouseEntered
+        setColor(jPanelRelatVend);
+    }//GEN-LAST:event_jPanelRelatVendMouseEntered
 
-    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
+    private void jPanelRelatVendMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRelatVendMouseExited
         // TODO add your handling code here:
         evt.getLocationOnScreen();
-        //resetColor(jPanel2);
-    }//GEN-LAST:event_jPanel4MouseExited
+        resetColor(jPanelRelatVend);
+    }//GEN-LAST:event_jPanelRelatVendMouseExited
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    
+      public void setColor(JPanel panel)
+ {
+     panel.setBackground(new java.awt.Color(239, 24, 14));
+ }
+ 
+ public void resetColor(JPanel panel)
+ {
+     panel.setBackground(new java.awt.Color(232,81,74));
+ }
  
     /**
      * @param args the command line arguments
@@ -292,8 +270,8 @@ public class TRelatorioF extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelRelatComb;
+    private javax.swing.JPanel jPanelRelatVend;
     // End of variables declaration//GEN-END:variables
 }

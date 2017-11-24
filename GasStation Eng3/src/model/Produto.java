@@ -4,6 +4,18 @@ package model;
 
 public class Produto {
 
+    private String nome;
+    private int codigo;
+    private float valor;
+    private String descricao;
+
+    private String dataCompra;
+    private String dataValidade;
+
+    private String fornecedor;
+    private float qntArmazenada;
+    private int maximo;
+
     /**
      * @return the maximo
      */
@@ -18,18 +30,7 @@ public class Produto {
         this.maximo = maximo;
     }
     
-    private String nome;
-    private int codigo;
-    private float valor;
-    private String descricao;
-
-    private String dataCompra;
-    private String dataValidade;
-
-    private String fornecedor;
-    private float qntArmazenada;
-    private int maximo;
-
+    
     /**
      * @return the dataValidade
      */
@@ -71,14 +72,7 @@ public class Produto {
     
     }
 
-    public void cadastrarProduto() {
-    }
-
-    public void alterarProduto() {
-    }
-
-    public void removerProduto() {
-    }
+    
     public String getNome() {
         return nome;
     }

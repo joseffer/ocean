@@ -20,9 +20,9 @@ import javax.swing.JPanel;
  * @author ASUS
  */
 public class CustomPanelDiesel extends JPanel{
-    int progress = 0;
-    TCombustivel combustivel;
-    public void UpdateProgress(int progressValue){
+    private int progress = 0;
+    private TCombustivel combustivel;
+    public void updateProgress(int progressValue){
         progress = progressValue;
     }
     @Override

@@ -265,7 +265,7 @@ public class TCombustivel extends javax.swing.JFrame {
 for (int num = 1; num <= totalTanque; num++) {
             
                try {
-                   progressPanel.UpdateProgress(num);
+                   progressPanel.updateProgress(num);
                    progressPanel.repaint();
                    Thread.sleep(5);
                } catch (InterruptedException ex) {
@@ -288,7 +288,7 @@ for (int num = 1; num <= totalTanque; num++) {
 for (int num = 1; num <= totalTanque; num++) {
             
                try {
-                   customPanelAditivada1.UpdateProgress(num);
+                   customPanelAditivada1.updateProgress(num);
                    customPanelAditivada1.repaint();
                    Thread.sleep(5);
                } catch (InterruptedException ex) {
@@ -311,7 +311,7 @@ for (int num = 1; num <= totalTanque; num++) {
 for (int num = 1; num <= totalTanque; num++) {
             
                try {
-                   customPanelEtanol1.UpdateProgress(num);
+                   customPanelEtanol1.updateProgress(num);
                    customPanelEtanol1.repaint();
                    Thread.sleep(5);
                } catch (InterruptedException ex) {
@@ -334,7 +334,7 @@ for (int num = 1; num <= totalTanque; num++) {
 for (int num = 1; num <= totalTanque; num++) {
             
                try {
-                   customPanelDiesel1.UpdateProgress(num);
+                   customPanelDiesel1.updateProgress(num);
                    customPanelDiesel1.repaint();
                    Thread.sleep(5);
                } catch (InterruptedException ex) {
