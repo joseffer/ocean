@@ -43,7 +43,7 @@ public class ProdutoDAO extends Conexao {
         PreparedStatement stmt =null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO Produto(nome,descricao,fornecedor,qtdArmazenada,valor,compra,validade,maximo)VALUES(?,?,?,?,?,?,?,?) ");
+            stmt = con.prepareStatement("INSERT INTO Produto(nome,descricao,fornecedor,qtdArmazenada,valor,compra,validade,maximo,qtd_vendida)VALUES(?,?,?,?,?,?,?,?,0) ");
             stmt.setString(1,nome );
             stmt.setString(2,descricao );
             stmt.setString(3,fornecedor );
@@ -120,13 +120,14 @@ public class ProdutoDAO extends Conexao {
         
         }
         }
-        public void updateEstoque(float qntArmazenada, String nome){
+        public void updateEstoque(float qtd, String nome){
             Connection con = Conexao.getConnection();
             PreparedStatement stmt =null;
            try {
-            stmt = con.prepareStatement("UPDATE produto SET qtdArmazenada=qtdArmazenada-? WHERE nome = ? ");
-            stmt.setFloat(1,qntArmazenada);
-            stmt.setString(2, nome);
+            stmt = con.prepareStatement("UPDATE produto SET qtdArmazenada=qtdArmazenada-?, qtd_vendida=qtd_vendida+? WHERE nome = ? ");
+            stmt.setFloat(1,qtd);
+            stmt.setFloat(2, qtd);
+            stmt.setString(3, nome);
             stmt.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"erro ao atualizar estoque "+ex);

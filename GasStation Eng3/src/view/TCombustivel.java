@@ -217,7 +217,7 @@ public class TCombustivel extends javax.swing.JFrame {
         String nomeCombustivel = (String)tipoCombustivel.getSelectedItem();        
         float litros = Float.parseFloat(jtLitros.getText());
         float total = Float.parseFloat(jtTotal.getText());
-        
+        float  qtd_vendida = Float.parseFloat(jtLitros.getText());
         control.Control.updateEstoque( litros, (String)tipoCombustivel.getSelectedItem());
         Control.addVendaCombustivel(nomeCombustivel,litros, total);
         

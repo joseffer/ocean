@@ -260,49 +260,9 @@ public class Tvenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        // TODO add your handling code here:
-       //açao do botao OK
-       evt.getClass();
-       int itens = Integer.parseInt(jtItens.getText());
-       float subtotal = Float.parseFloat(jtSubtotal.getText());
-       int qtd = Integer.parseInt(jtQtd.getText());
-       String textField;
-       
-        Produto p = control.Control.buscaProduto(jtNomeProd.getText());
-        float valor = p.getValor();
-        if ((valor > 0) && (qtd > 0)) {
-           jtValorUnitario.setText(Float.toString(valor));
-           
-           itens++;
-           jtItens.setText(Integer.toString(itens));
-           
-           subtotal += valor*qtd;
-           jtSubtotal.setText(Float.toString(subtotal));
-           
-           textField = jTextArea1.getText() + jtItens.getText() + "         " + jtNomeProd.getText()+ "             " + jtQtd.getText()+ "                  " + valor*qtd + "\n";
-           jTextArea1.setText(textField);
-           
-           control.Control.updateEstoque((float)qtd,jtNomeProd.getText());
-       }
-       else JOptionPane.showMessageDialog(null,"Produto não encontrado ou quantidade não informada");
-    }//GEN-LAST:event_jPanel4MouseClicked
-
     private void jtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtValorUnitarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtValorUnitarioActionPerformed
-
-    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
-        // TODO add your handling code here:
-        evt.getLocationOnScreen();
-        setColor(jPanel4);
-    }//GEN-LAST:event_jPanel4MouseEntered
-
-    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
-        // TODO add your handling code here:
-        evt.getLocationOnScreen();
-        resetColor(jPanel4);
-    }//GEN-LAST:event_jPanel4MouseExited
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
         // TODO add your handling code here:
@@ -316,10 +276,6 @@ public class Tvenda extends javax.swing.JFrame {
         resetColor(jPanel2);
     }//GEN-LAST:event_jPanel2MouseExited
 
-    private void jllOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jllOkMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jllOkMouseClicked
-
     private void jtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtSubtotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtSubtotalActionPerformed
@@ -332,6 +288,50 @@ public class Tvenda extends javax.swing.JFrame {
         Control.addVendaProduto(produtos,total);
         JOptionPane.showMessageDialog(null,"TOTAL A PAGAR: R$" + jtSubtotal.getText());
     }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
+        // TODO add your handling code here:
+        evt.getLocationOnScreen();
+        resetColor(jPanel4);
+    }//GEN-LAST:event_jPanel4MouseExited
+
+    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
+        // TODO add your handling code here:
+        evt.getLocationOnScreen();
+        setColor(jPanel4);
+    }//GEN-LAST:event_jPanel4MouseEntered
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // TODO add your handling code here:
+        //açao do botao OK
+        evt.getClass();
+        int itens = Integer.parseInt(jtItens.getText());
+        float subtotal = Float.parseFloat(jtSubtotal.getText());
+        int qtd = Integer.parseInt(jtQtd.getText());
+        String textField;
+
+        Produto p = control.Control.buscaProduto(jtNomeProd.getText());
+        float valor = p.getValor();
+        if ((valor > 0) && (qtd > 0)) {
+            jtValorUnitario.setText(Float.toString(valor));
+
+            itens++;
+            jtItens.setText(Integer.toString(itens));
+
+            subtotal += valor*qtd;
+            jtSubtotal.setText(Float.toString(subtotal));
+
+            textField = jTextArea1.getText() + jtItens.getText() + "         " + jtNomeProd.getText()+ "             " + jtQtd.getText()+ "                  " + valor*qtd + "\n";
+            jTextArea1.setText(textField);
+
+            control.Control.updateEstoque((float)qtd,jtNomeProd.getText());
+        }
+        else JOptionPane.showMessageDialog(null,"Produto não encontrado ou quantidade não informada");
+    }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jllOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jllOkMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jllOkMouseClicked
     public void setColor(JPanel panel)
     {
      panel.setBackground(new java.awt.Color(239, 24, 14));

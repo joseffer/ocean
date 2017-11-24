@@ -55,8 +55,8 @@ public class Control {
     public static void  updateProduto(int codigo, String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada){
         ProdutoDAO.getInstance().update(codigo, nome, valor, descricao, dataCompra, dataValidade, fornecedor, qntArmazenada);
     }
-    public static void  updateEstoque(float qntArmazenada,String nome){
-        ProdutoDAO.getInstance().updateEstoque(qntArmazenada,nome);
+    public static void  updateEstoque(float qtd,String nome){
+        ProdutoDAO.getInstance().updateEstoque(qtd,nome);
     }
     
     public static void excluirProduto (int cod){
