@@ -16,12 +16,5 @@ public class Venda {
         this.total = total;
     }
 
-    public void efetuarVenda() {
-    }
-
-    public void cancelarProduto() {
-    }
-
-    public void cancelarVenda() {
-    }
+ 
 }
