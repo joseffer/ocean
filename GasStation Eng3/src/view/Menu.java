@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JPanel;
+import model.Funcionario;
 
 /**
  *
@@ -207,6 +208,9 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 120, 100));
 
         jPanel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel10MouseEntered(evt);
             }
@@ -449,6 +453,23 @@ public class Menu extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jPanel5MouseClicked
 
+    private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
+        // TODO add your handling code here:
+        TRelatorioF Relatorio = new TRelatorioF();
+        Relatorio.setVisible(true);
+    }//GEN-LAST:event_jPanel10MouseClicked
+
+    public void recebe (Funcionario f){
+        if(f.getCargo().equalsIgnoreCase("Frentista")){
+            jPanel4.setVisible(false);
+            jPanel8.setVisible(false);
+            jPanel10.setVisible(false);
+            jPanel3.setVisible(false);
+            jPanel9.setVisible(false);
+            
+        }
+    }
+    
 
     public void setColor(JPanel panel)
  {

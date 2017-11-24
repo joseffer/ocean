@@ -263,6 +263,11 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 120, 40));
 
         jcCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Frentista" }));
+        jcCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCargoActionPerformed(evt);
+            }
+        });
         jPanel1.add(jcCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 350));
@@ -348,6 +353,10 @@ public class TCadastro extends javax.swing.JFrame {
         evt.getLocationOnScreen();
         resetColor(jPanel2);
     }//GEN-LAST:event_jPanel2MouseExited
+
+    private void jcCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCargoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcCargoActionPerformed
 
     public void setColor(JPanel panel)
  {

@@ -95,6 +95,11 @@ public class HomeOk extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Entrar");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 120, 40));
@@ -203,7 +208,11 @@ public class HomeOk extends javax.swing.JFrame {
         
         try {
             if(control.Control.validarUsauario(tfLogin.getText(), tfSenha.getText())){
-                new Menu().setVisible(true);
+                
+               
+                Menu m = new Menu();
+                m.setVisible(true);
+                m.recebe( control.Control.pegarUsauario(tfLogin.getText(),tfSenha.getText()));
                 dispose();
             }else{
                 JOptionPane.showMessageDialog(null,"Senha Invalida ");
@@ -227,6 +236,10 @@ public class HomeOk extends javax.swing.JFrame {
         evt.getLocationOnScreen();
         resetColor(jPanel2);
     }//GEN-LAST:event_jPanel2MouseExited
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     
     public void setColor(JPanel panel)

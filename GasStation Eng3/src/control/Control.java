@@ -46,7 +46,29 @@ public class Control {
         return false;
         }
         
-    
+        public static Funcionario pegarUsauario (String user,String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+                     
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte messageDigest[] = md.digest(senha.getBytes("UTF-8"));
+            
+            StringBuilder sb = new StringBuilder();
+            
+            for(byte b : messageDigest){
+                sb.append(String.format("%02X", 0xFF & b));
+                
+                
+            }
+            String senhaHex = sb.toString();
+        for (Funcionario f : listarFuncionarios()){
+                
+                if((f.getLogin().equals(user)) && (f.getSenha().equals(senhaHex))){
+                    return f;
+                }
+                              
+               } 
+        return null;
+        }
+     
 
     public static void addProduto ( String nome, float valor, String descricao, String dataCompra,String dataValidade,String fornecedor,float qntArmazenada, int maximo) {
         ProdutoDAO.getInstance().create(nome, valor, descricao, dataCompra, dataValidade, fornecedor, qntArmazenada,maximo);
