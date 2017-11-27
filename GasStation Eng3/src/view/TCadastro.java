@@ -16,6 +16,7 @@ public class TCadastro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TfSenha;
     private javax.swing.JLabel TfUsuario;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -65,6 +66,7 @@ public class TCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         tfCpf = new javax.swing.JTextField();
@@ -112,7 +114,6 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
         tfCpf.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfCpf.setForeground(new java.awt.Color(255, 255, 255));
         tfCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCpfActionPerformed(evt);
@@ -126,7 +127,6 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         tfNome.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfNome.setForeground(new java.awt.Color(255, 255, 255));
         tfNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNomeActionPerformed(evt);
@@ -136,7 +136,6 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 490, -1));
 
         tfRg.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfRg.setForeground(new java.awt.Color(255, 255, 255));
         tfRg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfRgActionPerformed(evt);
@@ -155,7 +154,6 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         tfEndereco.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfEndereco.setForeground(new java.awt.Color(255, 255, 255));
         tfEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEnderecoActionPerformed(evt);
@@ -169,7 +167,6 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         tfSalario.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfSalario.setForeground(new java.awt.Color(255, 255, 255));
         tfSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSalarioActionPerformed(evt);
@@ -185,7 +182,6 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
 
         tfInss.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfInss.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(tfInss, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 119, 30));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -199,7 +195,6 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(TfUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         tfUsuario.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfUsuario.setForeground(new java.awt.Color(255, 255, 255));
         tfUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfUsuarioActionPerformed(evt);
@@ -208,7 +203,6 @@ public class TCadastro extends javax.swing.JFrame {
         jPanel1.add(tfUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 124, 30));
 
         tfSenha.setFont(new java.awt.Font("Century Schoolbook", 0, 11)); // NOI18N
-        tfSenha.setForeground(new java.awt.Color(255, 255, 255));
         tfSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSenhaActionPerformed(evt);
