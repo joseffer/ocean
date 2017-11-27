@@ -7,8 +7,6 @@ package model;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import view.Tvenda;
-import model.Venda;
 import control.Control;
 /**
  *

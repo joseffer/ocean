@@ -18,8 +18,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Funcionario;
-import model.Produto;
-import view.HomeOk;
 
 /**
  *
@@ -87,7 +85,7 @@ public class FuncionarioDAO extends Conexao{
 
     }
 
-    public List<Funcionario> ListarFunc() {
+    public List<Funcionario> listarFunc() {
         Connection con = Conexao.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;

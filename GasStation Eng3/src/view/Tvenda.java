@@ -6,12 +6,9 @@
 package view;
 
 import control.Control;
-import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Produto;
-import model.Venda;
 
 /**
  *
@@ -262,6 +259,7 @@ public class Tvenda extends javax.swing.JFrame {
 
     private void jtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtValorUnitarioActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_jtValorUnitarioActionPerformed
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
@@ -278,6 +276,7 @@ public class Tvenda extends javax.swing.JFrame {
 
     private void jtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtSubtotalActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_jtSubtotalActionPerformed
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked

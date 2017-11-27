@@ -53,18 +53,6 @@ public class Funcionario {
         setCodigoFun(Cod);
     }
     
-    public void receberCombustivel() {
-    }
-
-    public void armazenarCombustivel() {
-    }
-
-    public void emitirNotaFiscal() {
-    }
-
-    public void controlarCaixa() {
-    }
-
     public String getNome() {
         return nome;
     }

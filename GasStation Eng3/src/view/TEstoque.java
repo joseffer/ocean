@@ -5,10 +5,8 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Produto;
-import modelDAO.ProdutoDAO;
 
 /**
  *
@@ -172,6 +170,7 @@ public class TEstoque extends javax.swing.JFrame {
 
     private void jTableProdutoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableProdutoKeyReleased
         // TODO add your handling code here:
+        evt.getClass();
                             
         if(jTableProduto.getSelectedRow() != -1 ){
         
@@ -188,7 +187,7 @@ public class TEstoque extends javax.swing.JFrame {
 
     private void jTableProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProdutoMouseClicked
         // TODO add your handling code here:
-        
+        evt.getClass();
          if(jTableProduto.getSelectedRow() != -1 ){
         
         jtidProd.setText(jTableProduto.getValueAt(jTableProduto.getSelectedRow(),0 ).toString());
@@ -201,6 +200,7 @@ public class TEstoque extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
                if(jTableProduto.getSelectedRow() != -1 ){
                 
                   control.Control.updateProduto(

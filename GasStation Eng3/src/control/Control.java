@@ -8,14 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Funcionario;
 import model.Produto;
-import model.Venda;
 import modelDAO.Conexao;
 import modelDAO.FuncionarioDAO;
 import modelDAO.ProdutoDAO;
@@ -107,7 +105,7 @@ public class Control {
     
     public static List<Funcionario> listarFuncionarios(){ 
     
-        return FuncionarioDAO.getInstance().ListarFunc(); 
+        return FuncionarioDAO.getInstance().listarFunc(); 
         
     }
         public static Produto buildObject(ResultSet rs) {

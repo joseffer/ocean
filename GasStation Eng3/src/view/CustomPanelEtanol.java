@@ -21,7 +21,6 @@ import javax.swing.JPanel;
  */
 public class CustomPanelEtanol extends JPanel{
     private int progress = 0;
-    private TCombustivel combustivel;
     public void updateProgress(int progressValue){
         progress = progressValue;
     }

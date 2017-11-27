@@ -5,9 +5,6 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
-import model.Funcionario;
-import modelDAO.FuncionarioDAO;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +16,6 @@ public class TCadastro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TfSenha;
     private javax.swing.JLabel TfUsuario;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -69,7 +65,6 @@ public class TCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         tfCpf = new javax.swing.JTextField();
@@ -348,6 +343,7 @@ public class TCadastro extends javax.swing.JFrame {
 
     private void jcCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCargoActionPerformed
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_jcCargoActionPerformed
 
     public void setColor(JPanel panel)

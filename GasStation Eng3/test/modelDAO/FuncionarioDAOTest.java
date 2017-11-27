@@ -38,7 +38,7 @@ public class FuncionarioDAOTest {
    
     public void testListar() {
         FuncionarioDAO dao = modelDAO.FuncionarioDAO.getInstance();
-        for (Funcionario f: dao.ListarFunc()){
+        for (Funcionario f: dao.listarFunc()){
             System.out.println("nome: "+ f.getNome());
         }
     }

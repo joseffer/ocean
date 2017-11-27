@@ -36,7 +36,7 @@ public class ConexaoTestBehave {
     public void usuarioLogado(){
         
         
-        for (Funcionario f : funcionario.ListarFunc()){
+        for (Funcionario f : funcionario.listarFunc()){
                 
                 if((f.getLogin().equals(home.tfLogin.getText())) && (f.getSenha().equals( home.tfSenha.getText()))){
                     ok=1;
@@ -50,7 +50,7 @@ public class ConexaoTestBehave {
     
     @Then("A flag OK deve ser igual a $status")
     public void alertaLogin(){
-        for (Funcionario f : funcionario.ListarFunc()){
+        for (Funcionario f : funcionario.listarFunc()){
                 
                 if((f.getLogin().equals(home.tfLogin.getText())) && (f.getSenha().equals( home.tfSenha.getText()))){
                     ok=1;

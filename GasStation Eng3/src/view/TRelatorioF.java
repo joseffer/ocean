@@ -19,6 +19,17 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class TRelatorioF extends javax.swing.JFrame {
 
+
+// Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelRelatComb;
+    private javax.swing.JPanel jPanelRelatVend;
+    // End of variables declaration//GEN-END:variables
+
     /**
      * Creates new form TFolhadePagamento
      */
@@ -217,6 +228,7 @@ public class TRelatorioF extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
+        evt.getClass();
     }//GEN-LAST:event_jLabel1MouseClicked
 
       public void setColor(JPanel panel)
@@ -265,13 +277,5 @@ public class TRelatorioF extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanelRelatComb;
-    private javax.swing.JPanel jPanelRelatVend;
-    // End of variables declaration//GEN-END:variables
+    
 }

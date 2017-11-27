@@ -25,6 +25,14 @@ public class TFolhadePagamento extends javax.swing.JFrame {
     /**
      * Creates new form TFolhadePagamento
      */
+
+// Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableFuncionario;
+    // End of variables declaration//GEN-END:variables
+
     public TFolhadePagamento() {
         initComponents();
         carregaTabelaFunc();        
@@ -191,10 +199,5 @@ public class TFolhadePagamento extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableFuncionario;
-    // End of variables declaration//GEN-END:variables
+    
 }
